@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Твоё имя — личный сайт</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: #f9fafb;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      overflow-x: auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      border-color: #d1d5db;
+      background: #f3f4f6;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .projects-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .projects-list li {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    .projects-list li:last-child {
+      border-bottom: none;
+    }
+
+    .project-title {
+      font-weight: 600;
+    }
+
+    .tags {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .contacts-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contacts-list li {
+      margin-bottom: 6px;
+    }
+
+    .contacts-list a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .contacts-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+      header h1 {
+        font-size: 40px;
+      }
+      header p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <h1>Твоё имя</h1>
+    <p>Кто ты: разработчик / дизайнер / студент / автор и т.п.</p>
+  </header>
+
+  <!-- Навигация по странице -->
+  <nav>
+    <ul>
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+      <li><a href="#blog">Блог / Заметки</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ОБО МНЕ -->
+    <section id="about">
+      <h2>Обо мне</h2>
+      <p>
+        Привет! Я <strong>Твоё имя</strong>. Коротко расскажи, кто ты и чем занимаешься:
+        где учишься/работаешь, чем увлекаешься, в каких областях развиваешься.
+      </p>
+      <p>
+        Можно добавить немного человеческого текста: что тебе интересно,
+        какие технологии/направления тебе нравятся, что хочешь делать дальше.
+      </p>
+    </section>
+
+    <!-- ПРОЕКТЫ / ПОРТФОЛИО -->
+    <section id="projects">
+      <h2>Проекты / Портфолио</h2>
+      <ul class="projects-list">
+        <li>
+          <div class="project-title">Название проекта 1</div>
+          <div>Краткое описание: что это за проект, какую задачу решает, что именно ты делал(а).</div>
+          <div class="tags">Стэк/формат: HTML, CSS, JS · учебный проект</div>
+          <div>
+            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
+          </div>
+        </li>
+        <li>
+          <div class="project-title">Название проекта 2</div>
+          <div>Тут можно описать другой проект: сайт, пет-проект, учебную работу, дизайн или что угодно.</div>
+          <div class="tags">Например: Figma · дизайн · pet-project</div>
+          <div>
+            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
+          </div>
+        </li>
+        <!-- Добавляй новые <li> по мере появления проектов -->
+      </ul>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section id="contacts">
+      <h2>Контакты и ссылки</h2>
+      <ul class="contacts-list">
+        <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
+        <li>Telegram: <a href="https://t.me/username" target="_blank" rel="noopener">@username</a></li>
+        <li>GitHub: <a href="https://github.com/username" target="_blank" rel="noopener">github.com/username</a></li>
+        <li>Другая соцсеть / портфолио: <a href="https://example.com" target="_blank" rel="noopener">ссылка</a></li>
+      </ul>
+      <p>Можно добавить фразу вроде: “Лучше всего писать в Telegram” или “Открыт(а) к предложениям о стажировках/проектах”.</p>
+    </section>
+
+    <!-- БЛОГ / ЗАМЕТКИ (заготовка на будущее) -->
+    <section id="blog">
+      <h2>Блог / Заметки</h2>
+      <p>
+        Пока здесь пусто, но в будущем ты можешь добавлять сюда небольшие посты:
+        заметки о проектах, мысли, разборы, туториалы.
+      </p>
+      <!-- Пример простой записи:
+      <article>
+        <h3>Название заметки</h3>
+        <small>01.01.2026</small>
+        <p>Короткий текст заметки...</p>
+      </article>
+      -->
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Твоё имя. Сделано на GitHub Pages.
+  </footer>
+
+  <script>
+    // Автоматически подставляем текущий год в подвал
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
