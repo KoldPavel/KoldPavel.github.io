@@ -84,30 +84,82 @@
       margin-bottom: 10px;
     }
 
-    .projects-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .plugins-panel {
+      margin: 0 auto;
+      width: 458px;
+      max-width: 100%;
+      background: url("assets/Plugins.png") center/cover no-repeat;
+      height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
     }
 
-    .projects-list li {
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px dashed #e5e7eb;
+    .plugins-ribbon {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
     }
 
-    .projects-list li:last-child {
-      border-bottom: none;
-    }
-
-    .project-title {
-      font-weight: 600;
-    }
-
-    .tags {
-      margin-top: 4px;
+    .plugin-button {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      height: 70px;
+      min-width: 64px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      color: #111827;
       font-size: 12px;
-      color: #6b7280;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      backdrop-filter: blur(2px);
+    }
+
+    .plugin-button:hover,
+    .plugin-button:focus-visible,
+    .plugin-button.active {
+      background: rgba(37, 99, 235, 0.1);
+      border-color: rgba(37, 99, 235, 0.35);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+      outline: none;
+    }
+
+    .plugin-button img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .plugin-description {
+      margin-top: 16px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .plugin-description h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .plugin-description p {
+      margin: 0;
+      color: #374151;
     }
 
     .contacts-list {
@@ -180,26 +232,18 @@
 
     <!-- ПРОЕКТЫ / ПОРТФОЛИО -->
     <section id="projects">
-      <h2>Проекты / Портфолио</h2>
-      <ul class="projects-list">
-        <li>
-          <div class="project-title">Название проекта 1</div>
-          <div>Краткое описание: что это за проект, какую задачу решает, что именно ты делал(а).</div>
-          <div class="tags">Стэк/формат: HTML, CSS, JS · учебный проект</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
-          </div>
-        </li>
-        <li>
-          <div class="project-title">Название проекта 2</div>
-          <div>Тут можно описать другой проект: сайт, пет-проект, учебную работу, дизайн или что угодно.</div>
-          <div class="tags">Например: Figma · дизайн · pet-project</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
-          </div>
-        </li>
-        <!-- Добавляй новые <li> по мере появления проектов -->
-      </ul>
+      <h2>Плагины</h2>
+      <p>
+        Выбери плагин на панели ниже, чтобы увидеть его описание. Фон панели совпадает с реальной вкладкой
+        Revit 2022, а каждая кнопка полностью подсвечивается при наведении.
+      </p>
+      <div class="plugins-panel" aria-label="Панель плагинов Revit">
+        <div class="plugins-ribbon" role="list" id="pluginsRibbon"></div>
+      </div>
+      <div class="plugin-description" id="pluginDescription">
+        <h3 id="pluginTitle">Выбери плагин</h3>
+        <p id="pluginText">Наведи и нажми на кнопку, чтобы прочитать подробности.</p>
+      </div>
     </section>
 
     <!-- КОНТАКТЫ -->
@@ -245,6 +289,71 @@
     if (location.hash) {
       showSection(location.hash.replace("#", ""));
     }
+
+    const plugins = [
+      {
+        id: "CreateSections",
+        title: "Create Sections",
+        description:
+          "Автоматически ставит сечения по выбранным элементам модели и облегчает создание комплекта чертежей.",
+      },
+      {
+        id: "Intersection",
+        title: "Intersection",
+        description: "Находит пересечения конструкций и инженерных систем, чтобы сократить время ручной проверки.",
+      },
+      {
+        id: "PathReinf",
+        title: "Path Reinf",
+        description: "Создаёт траектории армирования и ускоряет выпуск армокаркасов с корректным шагом стержней.",
+      },
+      {
+        id: "Results",
+        title: "Results",
+        description: "Импортирует результаты расчётов в Revit и помогает визуализировать нагрузки и перемещения.",
+      },
+      {
+        id: "RevitDirectShape",
+        title: "Revit DirectShape",
+        description: "Переводит сложные геометрии в DirectShape, сохраняя точность моделей и ускоряя работу проекта.",
+      },
+      {
+        id: "ViewDesign",
+        title: "View Design",
+        description: "Настраивает виды, фильтры и шаблоны оформления под задачи команды буквально в пару кликов.",
+      },
+    ];
+
+    const ribbon = document.getElementById("pluginsRibbon");
+    const pluginTitle = document.getElementById("pluginTitle");
+    const pluginText = document.getElementById("pluginText");
+
+    plugins.forEach((plugin) => {
+      const button = document.createElement("button");
+      button.className = "plugin-button";
+      button.setAttribute("role", "listitem");
+      button.dataset.pluginId = plugin.id;
+
+      const icon = document.createElement("img");
+      icon.src = `assets/Icons/${plugin.id}.png`;
+      icon.alt = plugin.title;
+
+      const label = document.createElement("span");
+      label.textContent = plugin.title;
+
+      button.append(icon, label);
+      button.addEventListener("click", () => {
+        document
+          .querySelectorAll(".plugin-button.active")
+          .forEach((activeButton) => activeButton.classList.remove("active"));
+
+        button.classList.add("active");
+        pluginTitle.textContent = plugin.title;
+        pluginText.textContent = plugin.description;
+      });
+
+      ribbon.appendChild(button);
+    });
   </script>
 </body>
 </html>
