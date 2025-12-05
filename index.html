@@ -159,7 +159,6 @@
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#projects">Проекты</a></li>
       <li><a href="#contacts">Контакты</a></li>
-      <li><a href="#blog">Блог / Заметки</a></li>
     </ul>
   </nav>
 
@@ -212,31 +211,38 @@
       </ul>
       <p>Можно добавить фразу вроде: “Лучше всего писать в Telegram” или “Открыт(а) к предложениям о стажировках/проектах”.</p>
     </section>
-
-    <!-- БЛОГ / ЗАМЕТКИ (заготовка на будущее) -->
-    <section id="blog">
-      <h2>Блог / Заметки</h2>
-      <p>
-        Пока здесь пусто, но в будущем ты можешь добавлять сюда небольшие посты:
-        заметки о проектах, мысли, разборы, туториалы.
-      </p>
-      <!-- Пример простой записи:
-      <article>
-        <h3>Название заметки</h3>
-        <small>01.01.2026</small>
-        <p>Короткий текст заметки...</p>
-      </article>
-      -->
-    </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Твоё имя. Сделано на GitHub Pages.
+    © <span id="year"></span> Hosted by GitHub Pages.
   </footer>
 
   <script>
     // Автоматически подставляем текущий год в подвал
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Показываем только выбранный раздел по клику в навигации
+    const sections = Array.from(document.querySelectorAll("main section"));
+    const navLinks = document.querySelectorAll("nav a");
+
+    function showSection(id) {
+      sections.forEach((section) => {
+        section.style.display = section.id === id ? "block" : "none";
+      });
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute("href").replace("#", "");
+        showSection(targetId);
+        history.replaceState(null, "", `#${targetId}`);
+      });
+    });
+
+    if (location.hash) {
+      showSection(location.hash.replace("#", ""));
+    }
   </script>
 </body>
 </html>
