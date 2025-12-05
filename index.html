@@ -145,11 +145,13 @@
 
     .plugin-group {
       background: #eeeeee;
-      border-radius: 12px;
+      border: 1px solid #1e293b;
+      border-radius: 0;
       padding: 12px 14px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
     }
 
     .plugin-group-title {
@@ -160,10 +162,11 @@
     }
 
     .plugin-group-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      align-items: stretch;
       gap: 0;
+      border: 1px solid #1e293b;
     }
 
     .plugin-button {
@@ -174,9 +177,9 @@
       gap: 6px;
       padding: 10px 12px;
       height: 70px;
-      border: 1px solid transparent;
+      border: 1px solid #1e293b;
       border-radius: 0;
-      background: rgba(211, 24, 24, 0);
+      background: #ffffff;
       color: #000000;
       cursor: pointer;
       font-weight: 600;
