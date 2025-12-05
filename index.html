@@ -92,7 +92,7 @@
 
     .projects-list li {
       margin-bottom: 14px;
-      padding-bottom: 10px;
+      padding-bottom: 14px;
       border-bottom: 1px dashed #e5e7eb;
     }
 
@@ -132,8 +132,88 @@
     footer {
       text-align: center;
       font-size: 12px;
-      color: #9ca3af;
+      color: #080808;
       padding: 20px;
+    }
+
+    .plugin-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 0;
+    }
+
+    .plugin-group {
+      background: #eeeeee;
+      border: 1px solid #1e293b;
+      border-radius: 0;
+      padding: 5px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .plugin-group-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+      text-align: center;
+    }
+
+    .plugin-group-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0;
+    }
+
+    .plugin-button {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      height: 70px;
+      border: 1px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      color: #000000;
+      cursor: pointer;
+      font-weight: 500;
+      font-family: "Arial", sans-serif;
+      font-size: 12px;
+      font-stretch: 110%;
+      letter-spacing: 0.2px;
+    }
+
+    .plugin-button:hover,
+    .plugin-button:focus-visible,
+    .plugin-button.active {
+      background: #cceaf9;
+      border-color: #0261bf;
+      box-shadow: 0 0px 0px rgba(14, 165, 233, 0.2);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .plugin-title {
+      color: #000000;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .plugin-description {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: #000000;
+      border: 1px solid #1e293b;
+      max-width: 520px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
     }
 
     @media (min-width: 768px) {
@@ -157,7 +237,7 @@
   <nav>
     <ul>
       <li><a href="#about">Обо мне</a></li>
-      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#projects">Плагины</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </nav>
@@ -167,37 +247,62 @@
     <section id="about">
       <h2>Обо мне</h2>
       <p>
-        Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit. 
+        Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit.
       </p>
       <p>
-        Изначально по образованию я инженер-конструктор по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе 
+        Изначально по образованию я инженер-конструктор по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе
         вуза. Как раз к тому времени Autodesk выпустил Revit 2017, который приемлимо стал работать и появился хороший шаблон КР от Александра Зуева - Weandrevit2017,
-        на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit.
+        на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit. Работая координатором получил опыт в создании
+        шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов
+        по Revit для студентов.
       </p>
     </section>
 
-    <!-- ПРОЕКТЫ / ПОРТФОЛИО -->
+    <!-- ПЛАГИНЫ -->
     <section id="projects">
-      <h2>Проекты / Портфолио</h2>
-      <ul class="projects-list">
-        <li>
-          <div class="project-title">Название проекта 1</div>
-          <div>Краткое описание: что это за проект, какую задачу решает, что именно ты делал(а).</div>
-          <div class="tags">Стэк/формат: HTML, CSS, JS · учебный проект</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
+      <h2>Плагины для Autodesk Revit</h2>
+      <p>
+        Вкладка плагинов в Revit 2022. Наведи на кнопку для подсветки, нажми чтобы увидеть описание инструмента.
+      </p>
+      <div class="plugin-panel" role="group" aria-label="Плагины Revit">
+        <div class="plugin-group" aria-label="Работа с видами">
+          <p class="plugin-group-title">Работа с видами</p>
+          <div class="plugin-group-buttons">
+            <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="CreateSections">
+              <img src="assets/Icons/CreateSections.png" alt="CreateSections" width="36" height="36" />
+              <span class="plugin-title">Создание<br>видов</span>
+            </button>
+            <button class="plugin-button" data-description="Настройка параметров вида и дизайна." aria-label="View Design">
+              <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
+              <span class="plugin-title">Оформление<br>видов</span>
+            </button>
           </div>
-        </li>
-        <li>
-          <div class="project-title">Название проекта 2</div>
-          <div>Тут можно описать другой проект: сайт, пет-проект, учебную работу, дизайн или что угодно.</div>
-          <div class="tags">Например: Figma · дизайн · pet-project</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
+        </div>
+        <div class="plugin-group" aria-label="Армирование и анализ">
+          <p class="plugin-group-title">Армирование и анализ</p>
+          <div class="plugin-group-buttons">
+            <button class="plugin-button" data-description="Поиск пересечений между элементами модели." aria-label="Intersection">
+              <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
+              <span class="plugin-title">Назначить<br>хосты DS</span>
+            </button>
+            <button class="plugin-button" data-description="Создание армирования вдоль путей и контуров." aria-label="Path Reinforcement">
+              <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
+              <span class="plugin-title">Дополнительное<br>армирование</span>
+            </button>
+            <button class="plugin-button" data-description="Просмотр результатов расчёта и проверок." aria-label="Results">
+              <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
+              <span class="plugin-title">Просмотр<br>результатов</span>
+            </button>
+            <button class="plugin-button" data-description="Преобразование объектов в DirectShape." aria-label="Revit DirectShape">
+              <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
+              <span class="plugin-title">DirectShape<br>из точек</span>
+            </button>
           </div>
-        </li>
-        <!-- Добавляй новые <li> по мере появления проектов -->
-      </ul>
+        </div>
+      </div>
+      <div class="plugin-description" id="plugin-description" aria-live="polite">
+        Нажмите на кнопку, чтобы увидеть описание плагина.
+      </div>
     </section>
 
     <!-- КОНТАКТЫ -->
@@ -218,7 +323,7 @@
   </footer>
 
   <script>
-    // Автоматически подставляем текущий год в подвал
+    // Автоматически подставляем текущий год
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Показываем только выбранный раздел по клику в навигации
@@ -243,6 +348,21 @@
     if (location.hash) {
       showSection(location.hash.replace("#", ""));
     }
+
+    const pluginButtons = document.querySelectorAll(".plugin-button");
+    const pluginDescription = document.getElementById("plugin-description");
+
+    pluginButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const title = button.querySelector(".plugin-title")?.textContent ?? "Плагин";
+        const description = button.dataset.description || "Описание недоступно.";
+
+        pluginButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        pluginDescription.textContent = `${title}: ${description}`;
+      });
+    });
   </script>
 </body>
 </html>
