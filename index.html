@@ -92,7 +92,7 @@
 
     .projects-list li {
       margin-bottom: 14px;
-      padding-bottom: 10px;
+      padding-bottom: 14px;
       border-bottom: 1px dashed #e5e7eb;
     }
 
@@ -132,14 +132,14 @@
     footer {
       text-align: center;
       font-size: 12px;
-      color: #9ca3af;
+      color: #080808;
       padding: 20px;
     }
 
     .plugin-panel {
       background: #0b1524 url("assets/Plugins.png") center/contain no-repeat;
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 0px 14px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -159,8 +159,8 @@
       height: 70px;
       border: 1px solid transparent;
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #e5e7eb;
+      background: rgba(211, 24, 24, 0);
+      color: #000000;
       cursor: pointer;
       font-weight: 600;
       font-size: 12px;
@@ -170,15 +170,15 @@
     .plugin-button:hover,
     .plugin-button:focus-visible,
     .plugin-button.active {
-      background: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0);
       border-color: #6ee7ff;
-      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+      box-shadow: 0 0px 0px rgba(14, 165, 233, 0.2);
       outline: none;
       transform: translateY(-1px);
     }
 
     .plugin-title {
-      color: #f9fafb;
+      color: #000000;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
       text-align: center;
       white-space: nowrap;
@@ -244,29 +244,29 @@
         Вкладка плагинов в Revit 2022. Наведи на кнопку для подсветки, нажми чтобы увидеть описание инструмента.
       </p>
       <div class="plugin-panel" role="group" aria-label="Плагины Revit">
-        <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="Create Sections">
-          <img src="assets/Icons/CreateSections.png" alt="Create Sections" width="36" height="36" />
-          <span class="plugin-title">Create Sections</span>
+        <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="CreateSections">
+          <img src="assets/Icons/CreateSections.png" alt="CreateSections" width="36" height="36" />
+          <span class="plugin-title">Создание<br>видов</span>
         </button>
         <button class="plugin-button" data-description="Поиск пересечений между элементами модели." aria-label="Intersection">
           <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
-          <span class="plugin-title">Intersection</span>
+          <span class="plugin-title">Назначить<br>хосты DS</span>
         </button>
         <button class="plugin-button" data-description="Создание армирования вдоль путей и контуров." aria-label="Path Reinforcement">
           <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
-          <span class="plugin-title">Path Reinforcement</span>
+          <span class="plugin-title">Дополнительное<br>армирование</span>
         </button>
         <button class="plugin-button" data-description="Просмотр результатов расчёта и проверок." aria-label="Results">
           <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
-          <span class="plugin-title">Results</span>
+          <span class="plugin-title">Просмотр<br>результатов</span>
         </button>
         <button class="plugin-button" data-description="Преобразование объектов в DirectShape." aria-label="Revit DirectShape">
           <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
-          <span class="plugin-title">Revit DirectShape</span>
+          <span class="plugin-title">DirectShape<br>из точек</span>
         </button>
         <button class="plugin-button" data-description="Настройка параметров вида и дизайна." aria-label="View Design">
           <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
-          <span class="plugin-title">View Design</span>
+          <span class="plugin-title">Оформление<br>видов</span>
         </button>
       </div>
       <div class="plugin-description" id="plugin-description" aria-live="polite">
@@ -292,7 +292,7 @@
   </footer>
 
   <script>
-    // Автоматически подставляем текущий год в подвал
+    // Автоматически подставляем текущий год
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Показываем только выбранный раздел по клику в навигации
