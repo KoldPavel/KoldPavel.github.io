@@ -137,16 +137,34 @@
     }
 
     .plugin-panel {
-      background: #0b152400 url("assets/Plugins.png") left/contain no-repeat;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: stretch;
+      max-width: 700px;
+    }
+
+    .plugin-group {
+      background: #eeeeee;
       border-radius: 12px;
-      padding: 0px 14px;
+      padding: 12px;
+      flex: 1 1 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 240px;
+    }
+
+    .plugin-group h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #111827;
+    }
+
+    .plugin-buttons {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 0;
-      min-height: 116px;
-      max-width: 700px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 20px rgba(15, 23, 42, 0.12);
+      gap: 6px;
     }
 
     .plugin-button {
@@ -158,8 +176,8 @@
       padding: 10px 12px;
       height: 70px;
       border: 1px solid transparent;
-      border-radius: 0;
-      background: rgba(211, 24, 24, 0);
+      border-radius: 8px;
+      background: #ffffff;
       color: #000000;
       cursor: pointer;
       font-weight: 600;
@@ -244,31 +262,40 @@
         Вкладка плагинов в Revit 2022. Наведи на кнопку для подсветки, нажми чтобы увидеть описание инструмента.
       </p>
       <div class="plugin-panel" role="group" aria-label="Плагины Revit">
-        <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="CreateSections">
-          <img src="assets/Icons/CreateSections.png" alt="CreateSections" width="36" height="36" />
-          <span class="plugin-title">Создание<br>видов</span>
-        <button class="plugin-button" data-description="Настройка параметров вида и дизайна." aria-label="View Design">
-          <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
-          <span class="plugin-title">Оформление<br>видов</span>
-        </button>
-        </button>
-        <button class="plugin-button" data-description="Поиск пересечений между элементами модели." aria-label="Intersection">
-          <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
-          <span class="plugin-title">Назначить<br>хосты DS</span>
-        </button>
-        <button class="plugin-button" data-description="Создание армирования вдоль путей и контуров." aria-label="Path Reinforcement">
-          <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
-          <span class="plugin-title">Дополнительное<br>армирование</span>
-        </button>
-        <button class="plugin-button" data-description="Просмотр результатов расчёта и проверок." aria-label="Results">
-          <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
-          <span class="plugin-title">Просмотр<br>результатов</span>
-        </button>
-        <button class="plugin-button" data-description="Преобразование объектов в DirectShape." aria-label="Revit DirectShape">
-          <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
-          <span class="plugin-title">DirectShape<br>из точек</span>
-        </button>
-        
+        <div class="plugin-group" aria-label="Работа с видами">
+          <h3>Работа с видами</h3>
+          <div class="plugin-buttons">
+            <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="CreateSections">
+              <img src="assets/Icons/CreateSections.png" alt="CreateSections" width="36" height="36" />
+              <span class="plugin-title">Создание<br>видов</span>
+            </button>
+            <button class="plugin-button" data-description="Настройка параметров вида и дизайна." aria-label="View Design">
+              <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
+              <span class="plugin-title">Оформление<br>видов</span>
+            </button>
+          </div>
+        </div>
+        <div class="plugin-group" aria-label="Армирование и анализ">
+          <h3>Армирование и анализ</h3>
+          <div class="plugin-buttons">
+            <button class="plugin-button" data-description="Поиск пересечений между элементами модели." aria-label="Intersection">
+              <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
+              <span class="plugin-title">Назначить<br>хосты DS</span>
+            </button>
+            <button class="plugin-button" data-description="Создание армирования вдоль путей и контуров." aria-label="Path Reinforcement">
+              <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
+              <span class="plugin-title">Дополнительное<br>армирование</span>
+            </button>
+            <button class="plugin-button" data-description="Просмтр результатов расчёта и проверок." aria-label="Results">
+              <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
+              <span class="plugin-title">Просмотр<br>результатов</span>
+            </button>
+            <button class="plugin-button" data-description="Преобразование объектов в DirectShape." aria-label="Revit DirectShape">
+              <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
+              <span class="plugin-title">DirectShape<br>из точек</span>
+            </button>
+          </div>
+        </div>
       </div>
       <div class="plugin-description" id="plugin-description" aria-live="polite">
         Нажмите на кнопку, чтобы увидеть описание плагина.
