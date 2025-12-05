@@ -136,6 +136,65 @@
       padding: 20px;
     }
 
+    .plugin-panel {
+      background: #0b1524 url("assets/Plugins.png") center/contain no-repeat;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      min-height: 116px;
+      max-width: 458px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 20px rgba(15, 23, 42, 0.12);
+    }
+
+    .plugin-button {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      height: 70px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #e5e7eb;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .plugin-button:hover,
+    .plugin-button:focus-visible,
+    .plugin-button.active {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: #6ee7ff;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .plugin-title {
+      color: #f9fafb;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .plugin-description {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #0f172a;
+      color: #e2e8f0;
+      border: 1px solid #1e293b;
+      max-width: 520px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
+    }
+
     @media (min-width: 768px) {
       header h1 {
         font-size: 40px;
@@ -167,39 +226,52 @@
     <section id="about">
       <h2>Обо мне</h2>
       <p>
-        Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit. 
+        Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit.
       </p>
       <p>
-        Изначально по образованию я инженер-конструктор по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе 
+        Изначально по образованию я инженер-конструктор по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе
         вуза. Как раз к тому времени Autodesk выпустил Revit 2017, который приемлимо стал работать и появился хороший шаблон КР от Александра Зуева - Weandrevit2017,
         на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit. Работая координатором получил опыт в создании
-        шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов 
+        шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов
         по Revit для студентов.
       </p>
     </section>
 
-    <!-- ПРОЕКТЫ / ПОРТФОЛИО -->
+    <!-- ПЛАГИНЫ -->
     <section id="projects">
-      <h2>Проекты / Портфолио</h2>
-      <ul class="projects-list">
-        <li>
-          <div class="project-title">Название проекта 1</div>
-          <div>Краткое описание: что это за проект, какую задачу решает, что именно ты делал(а).</div>
-          <div class="tags">Стэк/формат: HTML, CSS, JS · учебный проект</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
-          </div>
-        </li>
-        <li>
-          <div class="project-title">Название проекта 2</div>
-          <div>Тут можно описать другой проект: сайт, пет-проект, учебную работу, дизайн или что угодно.</div>
-          <div class="tags">Например: Figma · дизайн · pet-project</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
-          </div>
-        </li>
-        <!-- Добавляй новые <li> по мере появления проектов -->
-      </ul>
+      <h2>Плагины для Autodesk Revit</h2>
+      <p>
+        Вкладка плагинов в Revit 2022. Наведи на кнопку для подсветки, нажми чтобы увидеть описание инструмента.
+      </p>
+      <div class="plugin-panel" role="group" aria-label="Плагины Revit">
+        <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="Create Sections">
+          <img src="assets/Icons/CreateSections.png" alt="Create Sections" width="36" height="36" />
+          <span class="plugin-title">Create Sections</span>
+        </button>
+        <button class="plugin-button" data-description="Поиск пересечений между элементами модели." aria-label="Intersection">
+          <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
+          <span class="plugin-title">Intersection</span>
+        </button>
+        <button class="plugin-button" data-description="Создание армирования вдоль путей и контуров." aria-label="Path Reinforcement">
+          <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
+          <span class="plugin-title">Path Reinforcement</span>
+        </button>
+        <button class="plugin-button" data-description="Просмотр результатов расчёта и проверок." aria-label="Results">
+          <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
+          <span class="plugin-title">Results</span>
+        </button>
+        <button class="plugin-button" data-description="Преобразование объектов в DirectShape." aria-label="Revit DirectShape">
+          <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
+          <span class="plugin-title">Revit DirectShape</span>
+        </button>
+        <button class="plugin-button" data-description="Настройка параметров вида и дизайна." aria-label="View Design">
+          <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
+          <span class="plugin-title">View Design</span>
+        </button>
+      </div>
+      <div class="plugin-description" id="plugin-description" aria-live="polite">
+        Нажмите на кнопку, чтобы увидеть описание плагина.
+      </div>
     </section>
 
     <!-- КОНТАКТЫ -->
@@ -245,6 +317,21 @@
     if (location.hash) {
       showSection(location.hash.replace("#", ""));
     }
+
+    const pluginButtons = document.querySelectorAll(".plugin-button");
+    const pluginDescription = document.getElementById("plugin-description");
+
+    pluginButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const title = button.querySelector(".plugin-title")?.textContent ?? "Плагин";
+        const description = button.dataset.description || "Описание недоступно.";
+
+        pluginButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        pluginDescription.textContent = `${title}: ${description}`;
+      });
+    });
   </script>
 </body>
 </html>
