@@ -84,6 +84,87 @@
       margin-bottom: 10px;
     }
 
+    .plugins-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .plugin-panel {
+      width: 100%;
+      max-width: 458px;
+      min-height: 116px;
+      padding: 12px 14px;
+      background: url("assets/Plugins.png") center/cover no-repeat;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+      flex-wrap: wrap;
+    }
+
+    .plugin-button {
+      height: 70px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.18);
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      font-weight: 600;
+    }
+
+    .plugin-button img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .plugin-button span {
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .plugin-button:hover,
+    .plugin-button:focus-visible {
+      background: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .plugin-button.active {
+      background: rgba(59, 130, 246, 0.28);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.45);
+    }
+
+    .plugin-description {
+      width: 100%;
+      max-width: 520px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: #f9fafb;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    .plugin-description h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .plugin-description p {
+      margin: 0;
+      color: #4b5563;
+    }
+
     .projects-list {
       list-style: none;
       padding: 0;
@@ -180,26 +261,81 @@
 
     <!-- ПРОЕКТЫ / ПОРТФОЛИО -->
     <section id="projects">
-      <h2>Проекты / Портфолио</h2>
-      <ul class="projects-list">
-        <li>
-          <div class="project-title">Название проекта 1</div>
-          <div>Краткое описание: что это за проект, какую задачу решает, что именно ты делал(а).</div>
-          <div class="tags">Стэк/формат: HTML, CSS, JS · учебный проект</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
-          </div>
-        </li>
-        <li>
-          <div class="project-title">Название проекта 2</div>
-          <div>Тут можно описать другой проект: сайт, пет-проект, учебную работу, дизайн или что угодно.</div>
-          <div class="tags">Например: Figma · дизайн · pet-project</div>
-          <div>
-            Ссылка: <a href="https://example.com" target="_blank" rel="noopener">Открыть проект</a>
-          </div>
-        </li>
-        <!-- Добавляй новые <li> по мере появления проектов -->
-      </ul>
+      <h2>Плагины для Revit</h2>
+      <p>
+        Ниже — панель с плагинами, повторяющая вкладку Plugins для Revit 2022. Наведи курсор на кнопку, чтобы подсветить её, а
+        по клику увидишь описание выбранного плагина.
+      </p>
+
+      <div class="plugins-section">
+        <div class="plugin-panel" role="list">
+          <button
+            class="plugin-button"
+            type="button"
+            role="listitem"
+            data-title="CreateSections"
+            data-description="Автоматически создаёт виды-разрезы по выбранным элементам и готовит их к размещению на листах."
+          >
+            <img src="assets/Icons/CreateSections.png" alt="Иконка CreateSections" />
+            <span>Разрезы</span>
+          </button>
+          <button
+            class="plugin-button"
+            type="button"
+            role="listitem"
+            data-title="Intersection"
+            data-description="Находит пересечения конструктивных и инженерных элементов, формируя отчёт для координации."
+          >
+            <img src="assets/Icons/Intersection.png" alt="Иконка Intersection" />
+            <span>Пересечения</span>
+          </button>
+          <button
+            class="plugin-button"
+            type="button"
+            role="listitem"
+            data-title="PathReinf"
+            data-description="Создаёт арматурные пути вдоль заданных трасс, ускоряя моделирование армирования."
+          >
+            <img src="assets/Icons/PathReinf.png" alt="Иконка PathReinf" />
+            <span>Арм. путь</span>
+          </button>
+          <button
+            class="plugin-button"
+            type="button"
+            role="listitem"
+            data-title="Results"
+            data-description="Собирает и визуализирует результаты расчётов, помогая быстро анализировать модели."
+          >
+            <img src="assets/Icons/Results.png" alt="Иконка Results" />
+            <span>Результаты</span>
+          </button>
+          <button
+            class="plugin-button"
+            type="button"
+            role="listitem"
+            data-title="RevitDirectShape"
+            data-description="Импортирует геометрию через DirectShape, сохраняя структуру данных и атрибутов."
+          >
+            <img src="assets/Icons/RevitDirectShape.png" alt="Иконка RevitDirectShape" />
+            <span>DirectShape</span>
+          </button>
+          <button
+            class="plugin-button"
+            type="button"
+            role="listitem"
+            data-title="ViewDesign"
+            data-description="Пакетно настраивает графику видов и шаблоны оформления для листов."
+          >
+            <img src="assets/Icons/ViewDesign.png" alt="Иконка ViewDesign" />
+            <span>Оформление</span>
+          </button>
+        </div>
+
+        <div class="plugin-description" aria-live="polite">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
     </section>
 
     <!-- КОНТАКТЫ -->
@@ -244,6 +380,28 @@
 
     if (location.hash) {
       showSection(location.hash.replace("#", ""));
+    }
+
+    // Управление описанием плагинов
+    const pluginButtons = Array.from(document.querySelectorAll(".plugin-button"));
+    const pluginDescription = document.querySelector(".plugin-description");
+    const pluginTitle = pluginDescription?.querySelector("h3");
+    const pluginText = pluginDescription?.querySelector("p");
+
+    function showPluginDescription(button) {
+      if (!pluginTitle || !pluginText) return;
+      pluginButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+      pluginTitle.textContent = button.dataset.title;
+      pluginText.textContent = button.dataset.description;
+    }
+
+    pluginButtons.forEach((button) => {
+      button.addEventListener("click", () => showPluginDescription(button));
+    });
+
+    if (pluginButtons.length > 0) {
+      showPluginDescription(pluginButtons[0]);
     }
   </script>
 </body>
