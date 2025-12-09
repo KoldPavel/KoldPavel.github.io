@@ -164,6 +164,16 @@
       flex: 1 1 260px;
     }
 
+    .plugin-group.plugin-group--compact {
+      flex: 0.9 1 220px;
+      max-width: 340px;
+    }
+
+    .plugin-group.plugin-group--spacious {
+      flex: 1.1 1 320px;
+      min-width: 280px;
+    }
+
     .plugin-group-title {
       margin: 0;
       font-size: 14px;
@@ -280,7 +290,7 @@
         и скриншотами.
       </p>
       <div class="plugin-panel" role="group" aria-label="Плагины Revit">
-        <div class="plugin-group" aria-label="Работа с видами">
+        <div class="plugin-group plugin-group--compact" aria-label="Работа с видами">
           <p class="plugin-group-title">Работа с видами</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="plugins/create-sections.html" aria-label="Создание видов">
@@ -293,7 +303,7 @@
             </a>
           </div>
         </div>
-        <div class="plugin-group" aria-label="Армирование и анализ">
+        <div class="plugin-group plugin-group--spacious" aria-label="Армирование и анализ">
           <p class="plugin-group-title">Армирование и анализ</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="plugins/intersection-hosts.html" aria-label="Назначить хосты DS">
