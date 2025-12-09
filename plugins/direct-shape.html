@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DirectShape из точек — плагины Revit</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --accent: #0ea5e9;
+      --text: #0f172a;
+      --border: #e2e8f0;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #0b7cbf);
+      color: #f8fafc;
+      padding: 32px 20px 28px;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .breadcrumbs a {
+      color: #cce8ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin: 12px 0 4px;
+      font-size: 32px;
+      letter-spacing: 0.2px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.92;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 0 0 8px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    figure {
+      margin: 0;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      border: 1px solid #e2e8f0;
+    }
+
+    figcaption {
+      font-size: 14px;
+      color: #334155;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="breadcrumbs"><a href="../index.html">← Ко всем плагинам</a></div>
+      <h1>DirectShape из точек</h1>
+      <p>Строит КЭ схему в Revit по CSV/XLSX из ЛИРЫ и записывает данные армирования в параметры проекта.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Что делает плагин</h2>
+      <p>
+        Плагин создаёт DirectShape в категории «Антураж» на основе таблиц CSV или XLSX, экспортированных из ЛИРА САПР. Он формирует
+        расчётную схему, добавляет параметры проекта для хранения значений армирования каждого КЭ и записывает их в элементы.
+      </p>
+      <ul>
+        <li>Импортирует точки и таблицы армирования из CSV/XLSX.</li>
+        <li>Строит КЭ схему в виде DirectShape в категории «Антураж».</li>
+        <li>Создаёт параметры проекта и заполняет их значениями армирования.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Скриншоты</h2>
+      <div class="gallery-grid">
+        <figure>
+          <img src="../assets/Screenshots/DirectShape/DirectShape.png" alt="Генерация DirectShape по данным из CSV" />
+          <figcaption>Генерация DirectShape по точкам и таблицам из ЛИРЫ.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/Screenshots/DirectShape/DirectShape_2.png" alt="Готовая КЭ схема в Revit" />
+          <figcaption>Готовая КЭ схема в Revit с записанными параметрами армирования.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
