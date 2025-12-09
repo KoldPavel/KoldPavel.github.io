@@ -139,6 +139,16 @@
       flex: 1 1 260px;
     }
 
+    .plugin-group--views {
+      flex: 1 1 240px;
+      max-width: 360px;
+    }
+
+    .plugin-group--rebar {
+      flex: 1.5 1 360px;
+      min-width: 320px;
+    }
+
     .plugin-group-title {
       margin: 0;
       font-size: 14px;
@@ -360,7 +370,7 @@
     <section class="section plugin-panel-section" aria-label="Быстрый переход к другим плагинам">
       <h2>Все плагины</h2>
       <div class="plugin-panel" role="group" aria-label="Плагины Revit">
-        <div class="plugin-group" aria-label="Работа с видами">
+        <div class="plugin-group plugin-group--views" aria-label="Работа с видами">
           <p class="plugin-group-title">Работа с видами</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="create-sections.html" aria-label="Создание видов">
@@ -373,7 +383,7 @@
             </a>
           </div>
         </div>
-        <div class="plugin-group" aria-label="Армирование и анализ">
+        <div class="plugin-group plugin-group--rebar" aria-label="Армирование и анализ">
           <p class="plugin-group-title">Армирование и анализ</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="intersection-hosts.html" aria-label="Назначить хосты DS">
