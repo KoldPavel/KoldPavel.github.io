@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Дополнительное армирование — плагины Revit</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --accent: #0ea5e9;
+      --text: #0f172a;
+      --border: #e2e8f0;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #0b7cbf);
+      color: #f8fafc;
+      padding: 32px 20px 28px;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .breadcrumbs a {
+      color: #cce8ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin: 12px 0 4px;
+      font-size: 32px;
+      letter-spacing: 0.2px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.92;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 0 0 8px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    figure {
+      margin: 0;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      border: 1px solid #e2e8f0;
+    }
+
+    figcaption {
+      font-size: 14px;
+      color: #334155;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="breadcrumbs"><a href="../index.html">← Ко всем плагинам</a></div>
+      <h1>Дополнительное армирование</h1>
+      <p>Расставляет зоны дополнительного армирования по изополям из ЛИРЫ и раскрашивает DirectShape.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Что делает плагин</h2>
+      <p>
+        Плагин использует изополя из ЛИРЫ, чтобы разместить дополнительные зоны армирования в модели. Он также перекрашивает
+        пересекающиеся DirectShape, чтобы визуально отразить усиленные области и подготовить модель к выпуску документации.
+      </p>
+      <ul>
+        <li>Импортирует изополя и строит по ним зоны дополнительного армирования.</li>
+        <li>Перекрашивает пересекающиеся DirectShape для наглядности.</li>
+        <li>Помогает быстро оценить, где требуется усиление конструкции.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Скриншоты</h2>
+      <div class="gallery-grid">
+        <figure>
+          <img src="../assets/Screenshots/PathReinf/PathReinf_1.png" alt="Построение дополнительного армирования по изополям" />
+          <figcaption>Построение зон дополнительного армирования по импортированным изополям.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/Screenshots/PathReinf/PathReinf_2.png" alt="Настройка параметров дополнительного армирования" />
+          <figcaption>Настройка параметров и диапазонов для построения арматуры.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/Screenshots/PathReinf/PathReinf_3.png" alt="Перекрашивание DirectShape после усиления" />
+          <figcaption>Перекрашивание DirectShape в местах усиления для быстрой проверки.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
