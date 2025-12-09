@@ -116,6 +116,84 @@
       font-size: 20px;
     }
 
+    .plugin-panel-section {
+      margin-top: 18px;
+    }
+
+    .plugin-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 0;
+    }
+
+    .plugin-group {
+      background: #eef2ff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 8px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 260px;
+    }
+
+    .plugin-group-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+    }
+
+    .plugin-group-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .plugin-button {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      min-height: 88px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #0f172a;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: "Arial", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+      box-shadow: inset 0 0 0 1px #e2e8f0;
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+    }
+
+    .plugin-button:hover,
+    .plugin-button:focus-visible {
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+      background: #f8fafc;
+    }
+
+    .plugin-button img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .plugin-title {
+      text-align: center;
+      line-height: 1.2;
+    }
+
     ul {
       margin: 0;
       padding-left: 18px;
@@ -279,6 +357,46 @@
   </header>
 
   <main>
+    <section class="section plugin-panel-section" aria-label="Быстрый переход к другим плагинам">
+      <h2>Все плагины</h2>
+      <div class="plugin-panel" role="group" aria-label="Плагины Revit">
+        <div class="plugin-group" aria-label="Работа с видами">
+          <p class="plugin-group-title">Работа с видами</p>
+          <div class="plugin-group-buttons">
+            <a class="plugin-button" href="create-sections.html" aria-label="Создание видов">
+              <img src="../assets/Icons/CreateSections.png" alt="CreateSections" />
+              <span class="plugin-title">Создание<br />видов</span>
+            </a>
+            <a class="plugin-button" href="view-design.html" aria-label="Оформление видов">
+              <img src="../assets/Icons/ViewDesign.png" alt="View Design" />
+              <span class="plugin-title">Оформление<br />видов</span>
+            </a>
+          </div>
+        </div>
+        <div class="plugin-group" aria-label="Армирование и анализ">
+          <p class="plugin-group-title">Армирование и анализ</p>
+          <div class="plugin-group-buttons">
+            <a class="plugin-button" href="intersection-hosts.html" aria-label="Назначить хосты DS">
+              <img src="../assets/Icons/Intersection.png" alt="Intersection" />
+              <span class="plugin-title">Назначить<br />хосты DS</span>
+            </a>
+            <a class="plugin-button" href="path-reinforcement.html" aria-label="Дополнительное армирование">
+              <img src="../assets/Icons/PathReinf.png" alt="Path Reinforcement" />
+              <span class="plugin-title">Дополнительное<br />армирование</span>
+            </a>
+            <a class="plugin-button" href="results-viewer.html" aria-label="Просмотр результатов">
+              <img src="../assets/Icons/Results.png" alt="Results" />
+              <span class="plugin-title">Просмотр<br />результатов</span>
+            </a>
+            <a class="plugin-button" href="directshape-from-points.html" aria-label="DirectShape из точек">
+              <img src="../assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" />
+              <span class="plugin-title">DirectShape<br />из точек</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="plugin-hero">
       <div class="plugin-icon">
         <img src="../assets/Icons/Results.png" alt="Иконка плагина Просмотр результатов" width="60" height="60" />
