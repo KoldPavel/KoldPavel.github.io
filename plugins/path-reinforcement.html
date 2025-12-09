@@ -134,6 +134,7 @@
     figure img {
       width: 100%;
       display: block;
+      cursor: zoom-in;
     }
 
     figure figcaption {
@@ -141,6 +142,113 @@
       font-size: 14px;
       color: #475569;
       background: #ffffff;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox__dialog {
+      position: relative;
+      background: #0b1727;
+      border-radius: 14px;
+      padding: 16px;
+      max-width: 1024px;
+      width: min(1024px, 100%);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .lightbox__image-wrapper {
+      background: #0f172a;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 10px;
+      display: grid;
+      place-items: center;
+    }
+
+    .lightbox__image {
+      max-height: 72vh;
+      max-width: 100%;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .lightbox__caption {
+      margin: 12px 0 0;
+      color: #e5e7eb;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .lightbox__controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .lightbox__buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .lightbox__button,
+    .lightbox__close {
+      background: #111827;
+      color: #e5e7eb;
+      border: 1px solid #293548;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .lightbox__button:hover,
+    .lightbox__close:hover {
+      background: #1f2937;
+      transform: translateY(-1px);
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 640px) {
+      .lightbox__dialog {
+        padding: 12px;
+      }
+
+      .lightbox__controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .lightbox__buttons {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
 
     @media (max-width: 640px) {
@@ -205,5 +313,113 @@
       </div>
     </section>
   </main>
+
+  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр скриншотов">
+    <div class="lightbox__dialog">
+      <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">×</button>
+      <div class="lightbox__image-wrapper">
+        <img class="lightbox__image" src="" alt="" />
+      </div>
+      <p class="lightbox__caption"></p>
+      <div class="lightbox__controls">
+        <div class="lightbox__buttons">
+          <button class="lightbox__button" type="button" data-direction="prev">← Назад</button>
+          <button class="lightbox__button" type="button" data-direction="next">Вперед →</button>
+        </div>
+        <span class="lightbox__counter" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const figures = Array.from(document.querySelectorAll(".screenshot-grid figure"));
+      if (!figures.length) return;
+
+      const lightbox = document.querySelector(".lightbox");
+      const lightboxImage = lightbox.querySelector(".lightbox__image");
+      const lightboxCaption = lightbox.querySelector(".lightbox__caption");
+      const lightboxCounter = lightbox.querySelector(".lightbox__counter");
+      const closeButton = lightbox.querySelector(".lightbox__close");
+      const prevButton = lightbox.querySelector('[data-direction="prev"]');
+      const nextButton = lightbox.querySelector('[data-direction="next"]');
+
+      const images = figures.map((figure) => {
+        const img = figure.querySelector("img");
+        const caption = figure.querySelector("figcaption");
+        img.tabIndex = 0;
+        return {
+          img,
+          caption: caption ? caption.textContent.trim() : "",
+        };
+      });
+
+      let currentIndex = 0;
+
+      function updateViewer(index) {
+        const { img, caption } = images[index];
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt || "Скриншот";
+        lightboxCaption.textContent = caption;
+        lightboxCounter.textContent = `${index + 1} / ${images.length}`;
+      }
+
+      function openViewer(index) {
+        currentIndex = index;
+        updateViewer(currentIndex);
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        closeButton.focus();
+      }
+
+      function closeViewer() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function showRelative(step) {
+        currentIndex = (currentIndex + step + images.length) % images.length;
+        updateViewer(currentIndex);
+      }
+
+      figures.forEach((figure, index) => {
+        const img = figure.querySelector("img");
+        const open = () => openViewer(index);
+
+        figure.addEventListener("click", open);
+        figure.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            open();
+          }
+        });
+        img.setAttribute("role", "button");
+        img.setAttribute("aria-label", img.alt || "Открыть скриншот");
+      });
+
+      closeButton.addEventListener("click", closeViewer);
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeViewer();
+        }
+      });
+
+      prevButton.addEventListener("click", () => showRelative(-1));
+      nextButton.addEventListener("click", () => showRelative(1));
+
+      window.addEventListener("keydown", (event) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (event.key === "Escape") {
+          closeViewer();
+        } else if (event.key === "ArrowRight") {
+          showRelative(1);
+        } else if (event.key === "ArrowLeft") {
+          showRelative(-1);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
