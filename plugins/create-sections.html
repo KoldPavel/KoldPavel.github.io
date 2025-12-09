@@ -69,6 +69,58 @@
       padding: 24px 16px 32px;
     }
 
+    .plugin-nav {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px 14px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .plugin-nav__title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .plugin-nav__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .plugin-nav__link {
+      display: inline-block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.15s ease-in-out;
+    }
+
+    .plugin-nav__link:hover {
+      border-color: #0ea5e9;
+      background: #e2f2ff;
+      text-decoration: none;
+      color: #0b4f82;
+    }
+
+    .plugin-nav__link.is-current {
+      background: #0ea5e9;
+      color: #ffffff;
+      border-color: #0ea5e9;
+      box-shadow: 0 6px 14px rgba(14, 165, 233, 0.35);
+      pointer-events: none;
+    }
+
     .plugin-hero {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -279,6 +331,18 @@
   </header>
 
   <main>
+    <nav class="plugin-nav" aria-label="Плагины Павла Колдунова">
+      <p class="plugin-nav__title">Другие плагины</p>
+      <ul class="plugin-nav__list">
+        <li><a class="plugin-nav__link is-current" href="create-sections.html">Создание видов</a></li>
+        <li><a class="plugin-nav__link" href="view-design.html">Оформление видов</a></li>
+        <li><a class="plugin-nav__link" href="intersection-hosts.html">Назначить хосты DS</a></li>
+        <li><a class="plugin-nav__link" href="path-reinforcement.html">Дополнительное армирование</a></li>
+        <li><a class="plugin-nav__link" href="results-viewer.html">Просмотр результатов</a></li>
+        <li><a class="plugin-nav__link" href="directshape-from-points.html">DirectShape из точек</a></li>
+      </ul>
+    </nav>
+
     <div class="plugin-hero">
       <div class="plugin-icon">
         <img src="../assets/Icons/CreateSections.png" alt="Иконка плагина Создание видов" width="60" height="60" />
