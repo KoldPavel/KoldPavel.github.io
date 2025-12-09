@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DirectShape из точек — Плагины Revit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: #f9fafb;
+      padding: 32px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    figure {
+      background: #0b0b0b;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0;
+      border: 1px solid #e5e7eb;
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+    }
+
+    figure figcaption {
+      padding: 10px 12px;
+      color: #f9fafb;
+      font-size: 13px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="../index.html">← На главную</a>
+    <h1>DirectShape из точек</h1>
+    <p>Создаёт КЭ-схему в Revit из файлов CSV/XLSX, формируя DirectShape и параметры проекта для дальнейшего анализа.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Что делает плагин</h2>
+      <p>
+        Инструмент строит КЭ схему в модели Revit, аналогичную расчётной модели ЛИРЫ, на основе таблиц CSV или XLSX. Он создаёт
+        DirectShape в категории «Антураж», добавляет параметры проекта и записывает значения армирования для каждого конечного
+        элемента. Перед запуском таблицы экспортируются из ЛИРЫ, после чего весь объём данных переносится в Revit для дальнейшей
+        работы.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Ключевые возможности</h2>
+      <ul>
+        <li>Импорт таблиц CSV/XLSX и создание DirectShape, соответствующих расчётной модели.</li>
+        <li>Запись параметров армирования в проект для последующих проверок и визуализации.</li>
+        <li>Полная синхронизация данных из ЛИРЫ с моделью Revit без ручного ввода.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Скриншоты</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../assets/Screenshots/DirectShape/DirectShape.png" alt="Построенные DirectShape в модели" />
+          <figcaption>Созданная КЭ-схема в Revit с элементами DirectShape по данным из ЛИРЫ.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/Screenshots/DirectShape/DirectShape_2.png" alt="Параметры армирования в свойствах" />
+          <figcaption>Записанные параметры армирования для DirectShape в категории «Антураж».</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

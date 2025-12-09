@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Назначить хосты DS — Плагины Revit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: #f9fafb;
+      padding: 32px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    figure {
+      background: #0b0b0b;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0;
+      border: 1px solid #e5e7eb;
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+    }
+
+    figure figcaption {
+      padding: 10px 12px;
+      color: #f9fafb;
+      font-size: 13px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="../index.html">← На главную</a>
+    <h1>Назначить хосты DS</h1>
+    <p>Подготавливает DirectShape для дальнейшего армирования, сопоставляя элементы с их исходными конструкциями.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Что делает плагин</h2>
+      <p>
+        Инструмент сопоставляет ID DirectShape с ID конструкций, которым они принадлежат. Это обеспечивает корректные связи перед
+        запуском плагина «Дополнительное армирование», чтобы дополнительные зоны армирования автоматически находили нужные хосты.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Ключевые возможности</h2>
+      <ul>
+        <li>Поиск пересечений между DirectShape и элементами КР в модели.</li>
+        <li>Сохранение связей ID для последующих расчётов и окрашивания.</li>
+        <li>Подготовка модели к работе с дополнительным армированием без ручных сопоставлений.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Скриншоты</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../assets/Screenshots/Intersection/Intersection_1.png" alt="Запуск проверки пересечений" />
+          <figcaption>Поиск пересечений DirectShape с конструкциями для фиксации связей.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/Screenshots/Intersection/Intersection_2.png" alt="Результат назначения хостов" />
+          <figcaption>Список найденных совпадений и подтверждение назначения хостов.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
