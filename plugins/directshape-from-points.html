@@ -7,13 +7,18 @@
   <style>
     :root {
       color-scheme: light;
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --accent: #0ea5e9;
+      --text: #0f172a;
+      --border: #e2e8f0;
     }
 
     body {
       margin: 0;
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #f5f7fb;
-      color: #0f172a;
+      background: var(--bg);
+      color: var(--text);
     }
 
     a {
@@ -25,10 +30,11 @@
       text-decoration: underline;
     }
 
-    .page-header {
-      background: linear-gradient(135deg, #0b1a2b, #12263f);
+    header {
+      background: linear-gradient(135deg, #0f172a, #0b7cbf);
       color: #f8fafc;
-      padding: 28px 16px 24px;
+      padding: 32px 20px 28px;
+      border-bottom: 4px solid var(--accent);
     }
 
     .header-content {
