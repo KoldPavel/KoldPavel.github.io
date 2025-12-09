@@ -187,11 +187,12 @@
       font-size: 12px;
       font-stretch: 110%;
       letter-spacing: 0.2px;
+      text-decoration: none;
     }
 
     .plugin-button:hover,
     .plugin-button:focus-visible,
-    .plugin-button.active {
+    .plugin-button:active {
       background: #cceaf9;
       border-color: #0261bf;
       box-shadow: 0 0px 0px rgba(14, 165, 233, 0.2);
@@ -262,46 +263,47 @@
     <section id="projects">
       <h2>Плагины для Autodesk Revit</h2>
       <p>
-        Вкладка плагинов в Revit 2022. Наведи на кнопку для подсветки, нажми чтобы увидеть описание инструмента.
+        Вкладка плагинов в Revit 2022. Наведи на кнопку для подсветки, нажми — откроется подробная страница плагина с описанием
+        и скриншотами.
       </p>
       <div class="plugin-panel" role="group" aria-label="Плагины Revit">
         <div class="plugin-group" aria-label="Работа с видами">
           <p class="plugin-group-title">Работа с видами</p>
           <div class="plugin-group-buttons">
-            <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="CreateSections">
+            <a class="plugin-button" href="plugins/create-sections.html" aria-label="Создание видов">
               <img src="assets/Icons/CreateSections.png" alt="CreateSections" width="36" height="36" />
               <span class="plugin-title">Создание<br>видов</span>
-            </button>
-            <button class="plugin-button" data-description="Настройка параметров вида и дизайна." aria-label="View Design">
+            </a>
+            <a class="plugin-button" href="plugins/view-design.html" aria-label="Оформление видов">
               <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
               <span class="plugin-title">Оформление<br>видов</span>
-            </button>
+            </a>
           </div>
         </div>
         <div class="plugin-group" aria-label="Армирование и анализ">
           <p class="plugin-group-title">Армирование и анализ</p>
           <div class="plugin-group-buttons">
-            <button class="plugin-button" data-description="Поиск пересечений между элементами модели." aria-label="Intersection">
+            <a class="plugin-button" href="plugins/intersection-hosts.html" aria-label="Назначить хосты DS">
               <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
               <span class="plugin-title">Назначить<br>хосты DS</span>
-            </button>
-            <button class="plugin-button" data-description="Создание армирования вдоль путей и контуров." aria-label="Path Reinforcement">
+            </a>
+            <a class="plugin-button" href="plugins/path-reinforcement.html" aria-label="Дополнительное армирование">
               <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
               <span class="plugin-title">Дополнительное<br>армирование</span>
-            </button>
-            <button class="plugin-button" data-description="Просмотр результатов расчёта и проверок." aria-label="Results">
+            </a>
+            <a class="plugin-button" href="plugins/results-viewer.html" aria-label="Просмотр результатов">
               <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
               <span class="plugin-title">Просмотр<br>результатов</span>
-            </button>
-            <button class="plugin-button" data-description="Преобразование объектов в DirectShape." aria-label="Revit DirectShape">
+            </a>
+            <a class="plugin-button" href="plugins/directshape-from-points.html" aria-label="DirectShape из точек">
               <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
               <span class="plugin-title">DirectShape<br>из точек</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
-      <div class="plugin-description" id="plugin-description" aria-live="polite">
-        Нажмите на кнопку, чтобы увидеть описание плагина.
+      <div class="plugin-description">
+        Нажмите на нужный инструмент, чтобы открыть отдельную страницу с подробным описанием и скриншотами его работы.
       </div>
     </section>
 
@@ -349,20 +351,6 @@
       showSection(location.hash.replace("#", ""));
     }
 
-    const pluginButtons = document.querySelectorAll(".plugin-button");
-    const pluginDescription = document.getElementById("plugin-description");
-
-    pluginButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const title = button.querySelector(".plugin-title")?.textContent ?? "Плагин";
-        const description = button.dataset.description || "Описание недоступно.";
-
-        pluginButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        pluginDescription.textContent = `${title}: ${description}`;
-      });
-    });
   </script>
 </body>
 </html>
