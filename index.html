@@ -408,7 +408,7 @@
 <body>
   <!-- Шапка -->
   <header>
-    <h1>Павел Колдунов</h1>
+    <h1 data-i18n="headerName">Павел Колдунов</h1>
     <p data-i18n="headerSubtitle">BIM координатор</p>
     <div class="lang-switcher" role="group" aria-label="Language switcher">
       <button type="button" class="is-active" data-lang="ru">РУС</button>
@@ -538,6 +538,8 @@
         <div class="resume-block">
           <a
             class="download-button"
+            data-download-ru="assets/Resume/%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20-%20%D0%9A%D0%BE%D0%BB%D0%B4%D1%83%D0%BD%D0%BE%D0%B2%20%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB.pdf"
+            data-download-en="assets/Resume/Resume%20-%20Pavel%20Koldunov.pdf"
             href="assets/Resume/%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20-%20%D0%9A%D0%BE%D0%BB%D0%B4%D1%83%D0%BD%D0%BE%D0%B2%20%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB.pdf"
             download
           >
@@ -645,7 +647,7 @@
           <li>Email: <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
           <li>Telegram: <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
           <li>GitHub: <a href="https://github.com/KoldPavel" target="_blank" rel="noopener">github.com/KoldPavel</a></li>
-          <li>HeadHunter: <a href="https://voronezh.hh.ru/resume/bedbe2d9ff058fc3ed0039ed1f493338635143" target="_blank" rel="noopener">HH.ru</a></li>
+          <li data-lang-visibility="ru">HeadHunter: <a href="https://voronezh.hh.ru/resume/bedbe2d9ff058fc3ed0039ed1f493338635143" target="_blank" rel="noopener">HH.ru</a></li>
         </ul>
         <p data-i18n="contactsNote">Предпочтительно писать в Telegram.</p>
       </section>
@@ -666,6 +668,7 @@
     // Переключение языка
     const translations = {
       ru: {
+        headerName: "Павел Колдунов",
         headerSubtitle: "BIM координатор",
         navAbout: "Обо мне",
         navProjects: "Плагины",
@@ -748,6 +751,7 @@
         contactsNote: "Предпочтительно писать в Telegram."
       },
       en: {
+        headerName: "Pavel Koldunov",
         headerSubtitle: "BIM Coordinator",
         navAbout: "About",
         navProjects: "Plugins",
@@ -840,6 +844,19 @@
         const translation = translations[locale][key];
         if (translation) {
           node.innerHTML = translation;
+        }
+      });
+
+      document.querySelectorAll("[data-lang-visibility]").forEach((node) => {
+        const allowed = node.dataset.langVisibility.split(",").map((item) => item.trim());
+        node.style.display = allowed.includes(locale) ? "" : "none";
+      });
+
+      document.querySelectorAll("[data-download-ru]").forEach((link) => {
+        const downloadKey = locale === "en" ? "downloadEn" : "downloadRu";
+        const targetHref = link.dataset[downloadKey];
+        if (targetHref) {
+          link.setAttribute("href", targetHref);
         }
       });
 
