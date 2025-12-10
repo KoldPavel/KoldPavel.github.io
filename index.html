@@ -142,6 +142,33 @@
       margin-bottom: 16px;
     }
 
+    .resume-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #f8fafc;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+      transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+    }
+
+    .resume-download:hover,
+    .resume-download:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+      filter: brightness(1.05);
+    }
+
+    .resume-download svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
     .resume-block h3 {
       margin: 0 0 8px;
       font-size: 18px;
@@ -383,6 +410,22 @@
     <!-- РЕЗЮМЕ -->
     <section id="resume">
       <h2>Резюме</h2>
+      <p>
+        <a
+          class="resume-download"
+          href="assets/Resume/%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20-%20%D0%9A%D0%BE%D0%BB%D0%B4%D1%83%D0%BD%D0%BE%D0%B2%20%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB.pdf"
+          download
+          target="_blank"
+          rel="noopener"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 3a1 1 0 0 1 1 1v10.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-5 5a1 1 0 0 1-1.414 0l-5-5A1 1 0 1 1 7.707 11.293L11 14.586V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"
+            />
+          </svg>
+          Скачать резюме (PDF)
+        </a>
+      </p>
       <div class="resume-block">
         <h3>Контакты</h3>
         <ul class="resume-list">
