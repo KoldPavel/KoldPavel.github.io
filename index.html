@@ -93,6 +93,51 @@
       margin-bottom: 10px;
     }
 
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #f8fafc;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .experience {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .experience li {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f8fafc;
+    }
+
+    .experience strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
     .projects-list {
       list-style: none;
       padding: 0;
@@ -258,13 +303,14 @@
   </header>
 
   <!-- Навигация по странице -->
-  <nav>
-    <ul>
-      <li><a href="#about">Обо мне</a></li>
-      <li><a href="#projects">Плагины</a></li>
-      <li><a href="#contacts">Контакты</a></li>
-    </ul>
-  </nav>
+    <nav>
+      <ul>
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#projects">Плагины</a></li>
+        <li><a href="#resume">Резюме</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
 
   <main>
     <!-- ОБО МНЕ -->
@@ -322,6 +368,82 @@
               <span class="plugin-title">DirectShape<br>из точек</span>
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- РЕЗЮМЕ -->
+    <section id="resume">
+      <h2>Резюме</h2>
+      <div class="resume-grid">
+        <div class="info-card">
+          <h3>Контакты</h3>
+          <ul>
+            <li>Телефон: <a href="tel:+79805383915">+7 980 538-39-15</a></li>
+            <li>Email: <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
+            <li>Telegram: <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Образование</h3>
+          <p>Воронежский государственный архитектурно-строительный университет (2011–2017).</p>
+          <p>Факультет строительства уникальных зданий и сооружений, специальность — инженер-строитель.</p>
+        </div>
+      </div>
+
+      <h3>Опыт работы</h3>
+      <ul class="experience">
+        <li>
+          <strong>НПО Олимпроект, ООО «ИнжСтройПроект» — координатор проектов (август 2022 — апрель 2025)</strong>
+          <ul>
+            <li>Подготовка хранилища для КР, создание семейств, скриптов Dynamo и плагинов на C#.</li>
+            <li>Редактирование шаблона КР, очистка семейств и моделей, создание инструкций.</li>
+            <li>Ведение объекта, проверка модели на коллизии в Navisworks и соответствие BEP.</li>
+            <li>Обучение, техническая поддержка, аттестация сотрудников и семинары для студентов.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>ГК Хамина, ООО «Проект-36» — инженер-конструктор / BIM-специалист (январь 2021 — июль 2022)</strong>
+          <ul>
+            <li>Разработка стадий П и Р раздела КЖ в Revit, расчёт элементов в ЛИРА-САПР.</li>
+            <li>Настройка шаблона Revit для КР, создание семейств и скриптов в Dynamo.</li>
+            <li>Обучение и консультирование сотрудников отдела КР и АР, написание инструкций.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>ГК «Агротеххолдинг» — инженер-конструктор (ноябрь 2020 — декабрь 2020)</strong>
+          <ul>
+            <li>Разработка рабочей документации раздела КЖ.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>ООО «ТС Профиль-Групп» — инженер-проектировщик (сентябрь 2018 — октябрь 2020)</strong>
+          <ul>
+            <li>Проектирование металлоконструкций и разработка разделов КЖ, КМ, КМД.</li>
+            <li>Расчёт каркаса и узлов (Revit, Robot, SCAD), конструирование каркаса в Advance Steel.</li>
+            <li>Подбор и расчёт фундаментов, подготовка заданий для производства и пояснительных записок.</li>
+            <li>Авторский надзор и обслуживание оборудования для металлопроката.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="resume-grid" style="margin-top: 14px;">
+        <div class="info-card">
+          <h3>Навыки</h3>
+          <ul>
+            <li><strong>Продвинутый уровень:</strong> AutoCAD, Autodesk Revit, Revit API, Dynamo, Navisworks.</li>
+            <li><strong>Средний уровень:</strong> Advance Steel, Autodesk Robot Structural Analysis, IronPython, MS Word/Excel/Project, ЛИРА САПР 2021.</li>
+            <li><strong>Базовый уровень:</strong> SCAD, Mathcad, Autodesk 3ds Max, PyTorch, C#.</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>О себе</h3>
+          <p>
+            Развиваюсь как BIM-специалист: понимаю построение BIM-стандартов и настройку среды общих данных.
+            Работаю с Revit API на Python и C#, пишу скрипты и плагины для автоматизации. Прошёл срочную службу,
+            есть водительские права категории B и личный автомобиль.
+          </p>
+          <p>Портфолио: складские комплексы, мансарда, павильоны для рынка, жилой комплекс.</p>
         </div>
       </div>
     </section>
