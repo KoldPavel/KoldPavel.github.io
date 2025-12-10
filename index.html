@@ -93,6 +93,50 @@
       margin-bottom: 10px;
     }
 
+    .resume-block {
+      margin-top: 12px;
+      padding-top: 6px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .resume-block:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .resume-block h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .job-title {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .job-meta {
+      margin: 2px 0 8px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .skills-grid li {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
     .projects-list {
       list-style: none;
       padding: 0;
@@ -262,6 +306,7 @@
     <ul>
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#projects">Плагины</a></li>
+      <li><a href="#resume">Резюме</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </nav>
@@ -323,6 +368,106 @@
             </a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- РЕЗЮМЕ -->
+    <section id="resume">
+      <h2>Резюме</h2>
+
+      <div class="resume-block">
+        <h3>Контакты</h3>
+        <ul class="contacts-list">
+          <li>Мобильный телефон: <a href="tel:+79805383915">+7 980 538-39-15</a></li>
+          <li>Email: <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
+          <li>Telegram: <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+        </ul>
+      </div>
+
+      <div class="resume-block">
+        <h3>Образование</h3>
+        <p>Высшее — Воронежский государственный архитектурно-строительный университет, 2011–2017.</p>
+        <p>Факультет — строительный, «Строительство уникальных зданий и сооружений». Специальность — инженер-строитель.</p>
+      </div>
+
+      <div class="resume-block">
+        <h3>Опыт работы</h3>
+
+        <div class="resume-block">
+          <p class="job-title">Координатор проектов</p>
+          <p class="job-meta">Август 2022 — апрель 2025 · НПО Олимпроект, ООО «ИнжСтройПроект»</p>
+          <ul>
+            <li>Подготовка файлов хранилища для работы проектировщиков КР, создание семейств, скриптов в Dynamo и плагинов на C#.</li>
+            <li>Редактирование шаблона КР, подчистка семейств и моделей, написание инструкций.</li>
+            <li>Ведение объекта и проверка его модели на коллизии в Navisworks, контроль соответствия требованиям BEP.</li>
+            <li>Обучение и техническая поддержка новых сотрудников, их аттестация, проведение семинаров и bim-академии для студентов.</li>
+          </ul>
+        </div>
+
+        <div class="resume-block">
+          <p class="job-title">Инженер-конструктор / BIM-специалист</p>
+          <p class="job-meta">Январь 2021 — июль 2022 · ГК Хамина, ООО «Проект-36» — <a href="https://hamingroup.ru/" target="_blank" rel="noopener">hamingroup.ru</a></p>
+          <ul>
+            <li>Разработка стадий П и Р раздела КЖ в Revit, расчёт элементов монолитного здания в ЛИРА-САПР.</li>
+            <li>Настройка шаблона Revit для раздела КР, создание семейств и скриптов в Dynamo.</li>
+            <li>Обучение и консультирование сотрудников отделов КР и АР, подготовка инструкций по работе с шаблоном КЖ.</li>
+          </ul>
+        </div>
+
+        <div class="resume-block">
+          <p class="job-title">Инженер-конструктор</p>
+          <p class="job-meta">Ноябрь 2020 — декабрь 2020 · ГК «Агротеххолдинг» — <a href="https://agrotehholding.ru/" target="_blank" rel="noopener">agrotehholding.ru</a></p>
+          <ul>
+            <li>Разработка рабочей документации раздела КЖ.</li>
+          </ul>
+        </div>
+
+        <div class="resume-block">
+          <p class="job-title">Инженер-проектировщик</p>
+          <p class="job-meta">Сентябрь 2018 — октябрь 2020 · ООО «ТС Профиль-Групп» — <a href="http://ts-prof.ru/" target="_blank" rel="noopener">ts-prof.ru</a></p>
+          <ul>
+            <li>Проектирование металлоконструкций на производстве, разработка разделов КЖ, КМ, КМД по ТЗ заказчика.</li>
+            <li>Создание расчётных схем в Revit + Robot + SCAD, расчёт каркаса и узлов в Robot, подбор и расчёт фундаментов.</li>
+            <li>Конструирование каркаса в Advance Steel, фундаментов в Revit, составление заданий для линий производства металлопроката и пояснительных записок.</li>
+            <li>Авторский надзор, настройка и обслуживание оборудования для металлопроката.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-block">
+        <h3>Навыки</h3>
+        <ul class="skills-grid">
+          <li>
+            <strong>Продвинутый уровень:</strong><br />
+            AutoCAD, Autodesk Revit, Revit API, Dynamo, Navisworks
+          </li>
+          <li>
+            <strong>Средний уровень:</strong><br />
+            Advance Steel, Autodesk Robot Structural Analysis, IronPython, MS Word, MS Excel, MS Project, ЛИРА САПР 2021, vibe coding
+          </li>
+          <li>
+            <strong>Базовый уровень:</strong><br />
+            SCAD, Mathcad, Autodesk 3ds Max, PyTorch, C#
+          </li>
+        </ul>
+      </div>
+
+      <div class="resume-block">
+        <h3>О себе</h3>
+        <p>
+          Развиваюсь как BIM-специалист, понимаю построение BIM-стандартов и настройку среды общих данных. Работаю с Revit API на Python и C#, знаю Dynamo и пишу скрипты и плагины для автоматизации. Прошёл срочную службу, есть водительские права категории B и личный автомобиль.
+        </p>
+      </div>
+
+      <div class="resume-block">
+        <h3>Портфолио</h3>
+        <ul class="projects-list">
+          <li><span class="project-title">Склад площадью 570 м²</span></li>
+          <li><span class="project-title">Склад площадью 432 м²</span></li>
+          <li><span class="project-title">Мансарда</span></li>
+          <li><span class="project-title">Павильоны для рынка</span></li>
+          <li><span class="project-title">Жилой комплекс</span></li>
+        </ul>
       </div>
     </section>
 
