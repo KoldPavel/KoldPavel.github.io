@@ -213,6 +213,48 @@
       font-weight: 500;
     }
 
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      background: #f8fafc;
+    }
+
+    .service-card h3,
+    .service-card h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .service-detail {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      background: #ffffff;
+    }
+
+    .service-detail h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .service-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #1f2937;
+    }
+
+    .service-list li {
+      margin-bottom: 6px;
+    }
+
+    .service-note {
+      margin-top: 6px;
+      color: #334155;
+    }
+
     .resume-skill {
       margin-bottom: 8px;
     }
@@ -341,6 +383,7 @@
     <ul>
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#projects">Плагины</a></li>
+      <li><a href="#services">Услуги</a></li>
       <li><a href="#resume">Резюме</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
@@ -404,6 +447,51 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section id="services">
+      <h2>Услуги</h2>
+      <p>
+        Разрабатываю плагины для Revit, которые экономят время на рутинных процессах и снижают количество ошибок в проекте.
+        При необходимости могу выстроить работу с Revit в компании: шаблоны, BIM-стандарты, общая среда данных и сопровождение
+        пилотного проекта.
+      </p>
+
+      <article class="service-card">
+        <h3>Основные услуги</h3>
+        <div class="service-detail">
+          <h4>1. Разработка плагинов для Revit под ваши задачи</h4>
+          <ul class="service-list">
+            <li>Написание плагинов с учётом специфики вашей работы (КР/АР/ОВ/ВК и др.).</li>
+            <li>Автоматизация рутинных операций: оформление чертежей, спецификации, выгрузки, проверки модели.</li>
+            <li>Оптимизация уже существующих скриптов и плагинов (в том числе Dynamo).</li>
+            <li>Интеграция плагинов с вашей структурой данных и стандартами компании.</li>
+            <li>Подготовка документации и коротких инструкций для сотрудников.</li>
+          </ul>
+        </div>
+        <div class="service-detail">
+          <h4>2. Аудит работы в Revit</h4>
+          <ul class="service-list">
+            <li>Анализ текущих файлов, шаблонов, семейств и структуры проектов.</li>
+            <li>Выявление узких мест, где особенно выгодна автоматизация плагинами.</li>
+            <li>Рекомендации по доработке шаблонов и перечень потенциальных плагинов «под ваши процессы».</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <h3>Дополнительные услуги по внедрению Revit и BIM</h3>
+        <p class="service-note">Если вам нужна не только автоматизация, но и системный подход к Revit в компании:</p>
+        <ul class="service-list">
+          <li>Внедрение Revit «под ключ».</li>
+          <li>Установка и настройка Revit Server / среды общих данных.</li>
+          <li>Написание BIM-стандарта компании (правила моделирования, именования, LOD и т.д.).</li>
+          <li>Разработка шаблона КР на основе шаблонов ADSK и Weandrevit с учётом ваших требований.</li>
+          <li>Обучение сотрудников работе в новом шаблоне и по новому стандарту.</li>
+          <li>Сопровождение пилотного проекта и донастройка стандартов по его результатам.</li>
+        </ul>
+      </article>
     </section>
 
     <!-- РЕЗЮМЕ -->
