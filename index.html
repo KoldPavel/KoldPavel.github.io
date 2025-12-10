@@ -138,6 +138,45 @@
       text-decoration: underline;
     }
 
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .resume-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      box-shadow: inset 0 0 0 1px #e2e8f0;
+    }
+
+    .resume-card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .resume-meta {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #475569;
+    }
+
+    .resume-list {
+      padding-left: 18px;
+      margin: 8px 0;
+      color: #0f172a;
+    }
+
+    .resume-list li + li {
+      margin-top: 6px;
+    }
+
     footer {
       text-align: center;
       font-size: 12px;
@@ -262,6 +301,7 @@
     <ul>
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#projects">Плагины</a></li>
+      <li><a href="#resume">Резюме</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </nav>
@@ -323,6 +363,85 @@
             </a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- РЕЗЮМЕ -->
+    <section id="resume">
+      <h2>Резюме</h2>
+
+      <div class="resume-card">
+        <h3>Образование</h3>
+        <p class="resume-meta">2011–2017 · Воронежский государственный архитектурно-строительный университет</p>
+        <ul class="resume-list">
+          <li>Строительный факультет, специальность «Строительство уникальных зданий и сооружений».</li>
+          <li>Квалификация: инженер-строитель.</li>
+        </ul>
+      </div>
+
+      <h3>Опыт работы</h3>
+      <ul class="resume-grid">
+        <li class="resume-card">
+          <h3>Координатор проектов</h3>
+          <p class="resume-meta">Август 2022 – апрель 2025 · НПО Олимпроект / ООО «ИнжСтройПроект»</p>
+          <ul class="resume-list">
+            <li>Подготовка файлов хранилища для проектировщиков КР.</li>
+            <li>Создание семейств (закладные детали, ограждения лестниц) и скриптов в Dynamo по заданию.</li>
+            <li>Редактирование шаблона КР, ведение BEP, проверки на коллизии в Navisworks.</li>
+            <li>Обучение и консультирование новых сотрудников.</li>
+          </ul>
+        </li>
+        <li class="resume-card">
+          <h3>Инженер-конструктор / BIM-специалист</h3>
+          <p class="resume-meta">Январь 2021 – июль 2022 · ГК «Хамина» / ООО «Проект-36» · <a href="https://hamingroup.ru/" target="_blank" rel="noopener">hamingroup.ru</a></p>
+          <ul class="resume-list">
+            <li>Разработка стадий П и Р раздела КЖ в Revit.</li>
+            <li>Расчёт отдельных элементов монолитного здания в ЛИРА-САПР.</li>
+            <li>Настройка шаблона Revit для раздела КР, создание семейств и скриптов в Dynamo.</li>
+            <li>Обучение и консультирование сотрудников КР и АР, разработка инструкций по работе с шаблоном КЖ.</li>
+          </ul>
+        </li>
+        <li class="resume-card">
+          <h3>Инженер-конструктор</h3>
+          <p class="resume-meta">Ноябрь 2020 – декабрь 2020 · ГК «Агротеххолдинг» · <a href="https://agrotehholding.ru/" target="_blank" rel="noopener">agrotehholding.ru</a></p>
+          <ul class="resume-list">
+            <li>Разработка рабочей документации раздела КЖ.</li>
+          </ul>
+        </li>
+        <li class="resume-card">
+          <h3>Инженер-проектировщик</h3>
+          <p class="resume-meta">Сентябрь 2018 – октябрь 2020 · ООО «ТС Профиль-Групп» · <a href="http://ts-prof.ru/" target="_blank" rel="noopener">ts-prof.ru</a></p>
+          <ul class="resume-list">
+            <li>Проектирование металлоконструкций на производстве.</li>
+            <li>Разработка разделов КЖ, КМ и КМД для зданий и сооружений из ЛСТК и черного металла по ТЗ.</li>
+            <li>Подготовка расчётных схем в Revit + Robot + SCAD, расчёт каркаса и узлов в Robot.</li>
+            <li>Подбор и расчёт фундамента, конструирование каркаса в Advance Steel и фундамента в Revit.</li>
+            <li>Составление заданий для линий металлопроката и пояснительных записок, авторский надзор.</li>
+            <li>Настройка и обслуживание оборудования для металлопроката.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="resume-card">
+        <h3>О себе</h3>
+        <ul class="resume-list">
+          <li>Развиваюсь как BIM-специалист, понимаю построение BIM-стандартов и настройку среды общих данных.</li>
+          <li>Работаю с Revit API на Python, изучаю Dynamo и пишу скрипты для автоматизации.</li>
+          <li>Опыт командной работы 10+ человек; Revit изучаю с 2017 года, использую 3ds Max.</li>
+          <li>Прошёл срочную службу, есть водительские права категории B и личный автомобиль.</li>
+          <li>Готов к переезду и командировкам; без вредных привычек, занимаюсь спортом.</li>
+        </ul>
+      </div>
+
+      <div class="resume-card">
+        <h3>Портфолио</h3>
+        <ul class="resume-list">
+          <li>Склад площадью 570 м².</li>
+          <li>Склад площадью 432 м².</li>
+          <li>Мансарда.</li>
+          <li>Павильоны для рынка.</li>
+          <li>Жилой комплекс.</li>
+        </ul>
       </div>
     </section>
 
