@@ -138,6 +138,59 @@
       text-decoration: underline;
     }
 
+    .resume-block {
+      margin-bottom: 16px;
+    }
+
+    .resume-block h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .resume-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .resume-list li {
+      margin-bottom: 6px;
+    }
+
+    .resume-job {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      background: #f8fafc;
+    }
+
+    .resume-job__title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .resume-job__period {
+      color: #0ea5e9;
+      font-weight: 700;
+    }
+
+    .resume-job__company {
+      color: #0f172a;
+    }
+
+    .resume-job__role {
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .resume-skill {
+      margin-bottom: 8px;
+    }
+
     footer {
       text-align: center;
       font-size: 12px;
@@ -262,6 +315,7 @@
     <ul>
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#projects">Плагины</a></li>
+      <li><a href="#resume">Резюме</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </nav>
@@ -323,6 +377,113 @@
             </a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- РЕЗЮМЕ -->
+    <section id="resume">
+      <h2>Резюме</h2>
+      <div class="resume-block">
+        <h3>Контакты</h3>
+        <ul class="resume-list">
+          <li><strong>Мобильный телефон:</strong> +7 980 538-39-15</li>
+          <li><strong>Email:</strong> <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
+          <li><strong>Telegram:</strong> <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+        </ul>
+      </div>
+
+      <div class="resume-block">
+        <h3>Образование</h3>
+        <p>
+          Воронежский государственный архитектурно-строительный университет (2011–2017),
+          факультет строительный — «Строительство уникальных зданий и сооружений», специальность — инженер-строитель.
+        </p>
+      </div>
+
+      <div class="resume-block">
+        <h3>Опыт работы</h3>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period">Август 2022 – Апрель 2025</span>
+            <span class="resume-job__company">НПО Олимпроект, ООО «ИнжСтройПроект»</span>
+            <span class="resume-job__role">Координатор проектов</span>
+          </div>
+          <p>
+            Подготовка файлов хранилища для работы проектировщиков КР, создание семейств, скриптов в Dynamo по заданию,
+            плагинов на C#, редактирование шаблона КР, подчистка семейств и моделей, написание инструкций.
+            Ведение объекта и проверка его модели на коллизии в Navisworks, на соответствие его BEP.
+            Обучение и техническая поддержка новых сотрудников, их аттестация, проведение семинаров в компании и BIM-академии для студентов.
+          </p>
+        </article>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period">Январь 2021 — июль 2022</span>
+            <span class="resume-job__company">ГК Хамина, ООО Проект-36</span>
+            <span class="resume-job__role">Инженер-конструктор / BIM-специалист</span>
+          </div>
+          <p>
+            Разработка стадии П и Р раздела КЖ в Revit, выполнение расчетов отдельных элементов монолитного здания в ЛИРА-САПР.
+            Настройка шаблона Revit для раздела КР, создание семейств и скриптов в Dynamo, обучение и консультирование сотрудников отдела КР и АР,
+            разработка инструкций по работе с шаблоном для КЖ.
+          </p>
+        </article>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period">Ноябрь 2020 — декабрь 2020</span>
+            <span class="resume-job__company">ГК «Агротеххолдинг»</span>
+            <span class="resume-job__role">Инженер-конструктор</span>
+          </div>
+          <p>Разработка рабочей документации раздела КЖ.</p>
+        </article>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period">Сентябрь 2018 — октябрь 2020</span>
+            <span class="resume-job__company">ООО «ТС Профиль-Групп»</span>
+            <span class="resume-job__role">Инженер-проектировщик</span>
+          </div>
+          <p>
+            Проектирование металлоконструкций на производстве: разработка разделов КЖ, КМ, КМД для зданий и сооружений из ЛСТК и черного металла.
+            Создание расчетных схем в связке Revit + Robot + SCAD, расчет каркаса и узлов в Robot, подбор и расчет фундамента,
+            конструирование каркаса в Advance Steel и фундамента в Revit, составление заданий для линий производства металлопроката,
+            подготовка пояснительной записки, проведение авторского надзора, настройка и обслуживание оборудования для металлопроката.
+          </p>
+        </article>
+      </div>
+
+      <div class="resume-block">
+        <h3>Навыки</h3>
+        <div class="resume-skill">
+          <strong>Продвинутый уровень:</strong>
+          <span>AutoCAD, Autodesk Revit, Revit API, Dynamo, Navisworks</span>
+        </div>
+        <div class="resume-skill">
+          <strong>Средний уровень:</strong>
+          <span>Autodesk, Advance Steel, Autodesk Robot Structural Analysis, IronPython, MS Word, MS Excel, MS Project, ЛИРА САПР 2021, vibe coding</span>
+        </div>
+        <div class="resume-skill">
+          <strong>Базовый уровень:</strong>
+          <span>SCAD, Mathcad, Autodesk 3ds Max, PyTorch, C#</span>
+        </div>
+      </div>
+
+      <div class="resume-block">
+        <h3>О себе</h3>
+        <p>
+          Развиваюсь как BIM-специалист, понимаю построение BIM-стандартов и настройку среды общих данных.
+          Работаю с Revit API на Python и C#, знаю Dynamo и пишу скрипты и плагины для автоматизации.
+          Прошел срочную службу, есть водительские права категории B и личный автомобиль.
+        </p>
+      </div>
+
+      <div class="resume-block">
+        <h3>Портфолио</h3>
+        <ul class="resume-list">
+          <li>Рисунок 1. Склад площадью 570 м²</li>
+          <li>Рисунок 2. Склад площадью 432 м²</li>
+          <li>Рисунок 3. Мансарда</li>
+          <li>Рисунок 4. Павильоны для рынка</li>
+          <li>Рисунок 5. Жилой комплекс</li>
+        </ul>
       </div>
     </section>
 
