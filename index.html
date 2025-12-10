@@ -213,6 +213,35 @@
       font-weight: 500;
     }
 
+    .resume-actions {
+      margin: 12px 0 20px;
+    }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #f8fafc;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 16px rgba(14, 165, 233, 0.25);
+      transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    }
+
+    .download-button:hover,
+    .download-button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(14, 165, 233, 0.35);
+      opacity: 0.95;
+    }
+
+    .download-button span {
+      line-height: 1.2;
+    }
+
     .resume-skill {
       margin-bottom: 8px;
     }
@@ -409,6 +438,15 @@
     <!-- РЕЗЮМЕ -->
     <section id="resume">
       <h2>Резюме</h2>
+      <div class="resume-actions">
+        <a
+          class="download-button"
+          href="assets/Resume/%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20-%20%D0%9A%D0%BE%D0%BB%D0%B4%D1%83%D0%BD%D0%BE%D0%B2%20%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB.pdf"
+          download="Резюме - Колдунов Павел.pdf"
+        >
+          📄 <span>Скачать резюме (PDF)</span>
+        </a>
+      </div>
       <div class="resume-block">
         <a
           class="download-button"
