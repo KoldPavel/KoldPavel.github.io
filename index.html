@@ -5,18 +5,28 @@
   <title>Павел — личный сайт</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --accent: #0ea5e9;
+      --text: #0f172a;
+      --border: #e2e8f0;
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
-      background: #f5f5f5;
-      color: #222;
+      background: var(--bg);
+      color: var(--text);
     }
 
     header {
-      background: #111827;
-      color: #f9fafb;
-      padding: 40px 20px;
+      position: relative;
+      background: linear-gradient(135deg, #0f172a, #0b7cbf);
+      color: #f8fafc;
+      padding: 32px 20px 28px;
+      border-bottom: 4px solid var(--accent);
       text-align: center;
     }
 
@@ -37,6 +47,43 @@
       position: sticky;
       top: 0;
       z-index: 10;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      margin-left: 0;
+    }
+
+    .lang-switcher button {
+      border: none;
+      background: transparent;
+      color: #f8fafc;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 120ms ease, color 120ms ease;
+    }
+
+    .lang-switcher button.is-active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.25);
+    }
+
+    .lang-switcher button:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
     }
 
     nav ul {
@@ -129,6 +176,127 @@
       text-decoration: underline;
     }
 
+    .resume-block {
+      margin-bottom: 16px;
+    }
+
+    .resume-block h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .resume-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .resume-list li {
+      margin-bottom: 6px;
+    }
+
+    .resume-job {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      background: #f8fafc;
+    }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #0ea5e9;
+      color: #ffffff;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(14, 165, 233, 0.28);
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+    }
+
+    .download-button:hover,
+    .download-button:focus-visible {
+      background: #0284c7;
+      box-shadow: 0 10px 22px rgba(14, 165, 233, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .download-button:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 14px rgba(14, 165, 233, 0.22);
+    }
+
+    .resume-job__title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .resume-job__period {
+      color: #0ea5e9;
+      font-weight: 700;
+    }
+
+    .resume-job__company {
+      color: #0f172a;
+    }
+
+    .resume-job__role {
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      background: #f8fafc;
+    }
+
+    .service-card h3,
+    .service-card h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .service-detail {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      background: #ffffff;
+    }
+
+    .service-detail h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .service-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #1f2937;
+    }
+
+    .service-list li {
+      margin-bottom: 6px;
+    }
+
+    .service-note {
+      margin-top: 6px;
+      color: #334155;
+    }
+
+    .resume-skill {
+      margin-bottom: 8px;
+    }
+
     footer {
       text-align: center;
       font-size: 12px;
@@ -144,14 +312,25 @@
     }
 
     .plugin-group {
-      background: #eeeeee;
-      border: 1px solid #1e293b;
-      border-radius: 0;
-      padding: 5px 14px;
+      background: #dfeeff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 8px 14px 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
+      flex: 1 1 260px;
+    }
+
+    .plugin-group.plugin-group--compact {
+      flex: 0.9 1 220px;
+      max-width: 340px;
+    }
+
+    .plugin-group.plugin-group--spacious {
+      flex: 1.1 1 320px;
+      min-width: 280px;
     }
 
     .plugin-group-title {
@@ -166,7 +345,8 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0;
+      gap: 6px;
+      justify-content: center;
     }
 
     .plugin-button {
@@ -176,34 +356,37 @@
       justify-content: center;
       gap: 6px;
       padding: 10px 12px;
-      height: 70px;
+      min-height: 88px;
       border: 1px solid transparent;
-      border-radius: 0;
-      background: transparent;
-      color: #000000;
+      border-radius: 12px;
+      background: #fbf9fd;
+      color: #0f172a;
       cursor: pointer;
-      font-weight: 500;
+      font-weight: 600;
       font-family: "Arial", sans-serif;
       font-size: 12px;
-      font-stretch: 110%;
       letter-spacing: 0.2px;
+      text-decoration: none;
+      box-shadow: inset 0 0 0 1px #e2e8f0;
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
     }
 
     .plugin-button:hover,
     .plugin-button:focus-visible,
-    .plugin-button.active {
-      background: #cceaf9;
-      border-color: #0261bf;
-      box-shadow: 0 0px 0px rgba(14, 165, 233, 0.2);
-      outline: none;
+    .plugin-button:active {
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
       transform: translateY(-1px);
+      background: #f8fafc;
+    }
+
+    .plugin-button img {
+      width: 36px;
+      height: 36px;
     }
 
     .plugin-title {
-      color: #000000;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
       text-align: center;
-      white-space: nowrap;
+      line-height: 1.2;
     }
 
     .plugin-description {
@@ -229,93 +412,249 @@
 <body>
   <!-- Шапка -->
   <header>
-    <h1>Павел Колдунов</h1>
-    <p>BIM координатор</p>
+    <h1 data-i18n="headerName">Павел Колдунов</h1>
+    <p data-i18n="headerSubtitle">BIM координатор</p>
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+      <button type="button" class="is-active" data-lang="ru">РУС</button>
+      <button type="button" data-lang="en">ENG</button>
+    </div>
   </header>
 
   <!-- Навигация по странице -->
   <nav>
     <ul>
-      <li><a href="#about">Обо мне</a></li>
-      <li><a href="#projects">Плагины</a></li>
-      <li><a href="#contacts">Контакты</a></li>
+      <li><a href="#about" data-i18n="navAbout">Обо мне</a></li>
+      <li><a href="#projects" data-i18n="navProjects">Плагины</a></li>
+      <li><a href="#services" data-i18n="navServices">Услуги</a></li>
+      <li><a href="#resume" data-i18n="navResume">Резюме</a></li>
+      <li><a href="#contacts" data-i18n="navContacts">Контакты</a></li>
     </ul>
   </nav>
 
   <main>
     <!-- ОБО МНЕ -->
-    <section id="about">
-      <h2>Обо мне</h2>
-      <p>
-        Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit.
-      </p>
-      <p>
-        Изначально по образованию я инженер-конструктор по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе
-        вуза. Как раз к тому времени Autodesk выпустил Revit 2017, который приемлимо стал работать и появился хороший шаблон КР от Александра Зуева - Weandrevit2017,
-        на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit. Работая координатором получил опыт в создании
-        шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов
-        по Revit для студентов.
-      </p>
-    </section>
+      <section id="about">
+        <h2 data-i18n="aboutTitle">Обо мне</h2>
+        <p data-i18n="aboutP1">
+          Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit.
+        </p>
+        <p data-i18n="aboutP2">
+          Изначально по образованию я инженер-строитель по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе
+          вуза. Как раз к тому времени Autodesk выпустил Revit 2017, который приемлимо стал работать и появился хороший шаблон КР от Александра Зуева - Weandrevit2017,
+          на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit. Работая координатором получил опыт в создании
+          шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов
+          по Revit для студентов.
+        </p>
+      </section>
 
     <!-- ПЛАГИНЫ -->
-    <section id="projects">
-      <h2>Плагины для Autodesk Revit</h2>
-      <p>
-        Вкладка плагинов в Revit 2022. Наведи на кнопку для подсветки, нажми чтобы увидеть описание инструмента.
-      </p>
-      <div class="plugin-panel" role="group" aria-label="Плагины Revit">
-        <div class="plugin-group" aria-label="Работа с видами">
-          <p class="plugin-group-title">Работа с видами</p>
-          <div class="plugin-group-buttons">
-            <button class="plugin-button" data-description="Автоматическое построение разрезов по выбранным элементам." aria-label="CreateSections">
-              <img src="assets/Icons/CreateSections.png" alt="CreateSections" width="36" height="36" />
-              <span class="plugin-title">Создание<br>видов</span>
-            </button>
-            <button class="plugin-button" data-description="Настройка параметров вида и дизайна." aria-label="View Design">
-              <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
-              <span class="plugin-title">Оформление<br>видов</span>
-            </button>
+      <section id="projects">
+        <h2 data-i18n="pluginsTitle">Плагины для Autodesk Revit</h2>
+        <p data-i18n="pluginsDescription">
+          Нажмите на кнопку плагина, чтобы открыть его описание.
+        </p>
+        <div class="plugin-panel" role="group" aria-label="Плагины Revit">
+          <div class="plugin-group plugin-group--compact" aria-label="Работа с видами">
+            <p class="plugin-group-title" data-i18n="pluginsViewsGroup">Работа с видами</p>
+            <div class="plugin-group-buttons">
+              <a class="plugin-button" href="plugins/create-sections.html" aria-label="Создание видов">
+                <img src="assets/Icons/CreateSections.png" alt="CreateSections" width="36" height="36" />
+                <span class="plugin-title" data-i18n="pluginCreateViews">Создание<br>видов</span>
+              </a>
+              <a class="plugin-button" href="plugins/view-design.html" aria-label="Оформление видов">
+                <img src="assets/Icons/ViewDesign.png" alt="View Design" width="36" height="36" />
+                <span class="plugin-title" data-i18n="pluginViewDesign">Оформление<br>видов</span>
+              </a>
+            </div>
+          </div>
+          <div class="plugin-group plugin-group--spacious" aria-label="Армирование и анализ">
+            <p class="plugin-group-title" data-i18n="pluginsRebarGroup">Армирование и анализ</p>
+            <div class="plugin-group-buttons">
+              <a class="plugin-button" href="plugins/intersection-hosts.html" aria-label="Назначить хосты DS">
+                <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
+                <span class="plugin-title" data-i18n="pluginAssignHosts">Назначить<br>хосты DS</span>
+              </a>
+              <a class="plugin-button" href="plugins/path-reinforcement.html" aria-label="Дополнительное армирование">
+                <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
+                <span class="plugin-title" data-i18n="pluginExtraRebar">Дополнительное<br>армирование</span>
+              </a>
+              <a class="plugin-button" href="plugins/results-viewer.html" aria-label="Просмотр результатов">
+                <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
+                <span class="plugin-title" data-i18n="pluginResults">Просмотр<br>результатов</span>
+              </a>
+              <a class="plugin-button" href="plugins/directshape-from-points.html" aria-label="DirectShape из точек">
+                <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
+                <span class="plugin-title" data-i18n="pluginDirectShape">DirectShape<br>из точек</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="plugin-group" aria-label="Армирование и анализ">
-          <p class="plugin-group-title">Армирование и анализ</p>
-          <div class="plugin-group-buttons">
-            <button class="plugin-button" data-description="Поиск пересечений между элементами модели." aria-label="Intersection">
-              <img src="assets/Icons/Intersection.png" alt="Intersection" width="36" height="36" />
-              <span class="plugin-title">Назначить<br>хосты DS</span>
-            </button>
-            <button class="plugin-button" data-description="Создание армирования вдоль путей и контуров." aria-label="Path Reinforcement">
-              <img src="assets/Icons/PathReinf.png" alt="Path Reinforcement" width="36" height="36" />
-              <span class="plugin-title">Дополнительное<br>армирование</span>
-            </button>
-            <button class="plugin-button" data-description="Просмотр результатов расчёта и проверок." aria-label="Results">
-              <img src="assets/Icons/Results.png" alt="Results" width="36" height="36" />
-              <span class="plugin-title">Просмотр<br>результатов</span>
-            </button>
-            <button class="plugin-button" data-description="Преобразование объектов в DirectShape." aria-label="Revit DirectShape">
-              <img src="assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" width="36" height="36" />
-              <span class="plugin-title">DirectShape<br>из точек</span>
-            </button>
+      </section>
+
+    <!-- УСЛУГИ -->
+      <section id="services">
+        <h2 data-i18n="servicesTitle">Услуги</h2>
+        <p data-i18n="servicesIntro">
+          Разрабатываю плагины для Revit, которые экономят время на рутинных процессах и снижают количество ошибок в проекте.
+          При необходимости могу выстроить работу с Revit в компании: шаблоны, BIM-стандарты, общая среда данных и сопровождение
+          пилотного проекта.
+        </p>
+
+        <article class="service-card">
+          <h3 data-i18n="servicesMainTitle">Основные услуги</h3>
+          <div class="service-detail">
+            <h4 data-i18n="servicesDevTitle">1. Разработка плагинов для Revit под ваши задачи</h4>
+            <ul class="service-list">
+              <li data-i18n="servicesDev1">Написание плагинов с учётом специфики вашей работы (КР/АР/ОВ/ВК и др.).</li>
+              <li data-i18n="servicesDev2">Автоматизация рутинных операций: оформление чертежей, спецификации, выгрузки, проверки модели.</li>
+              <li data-i18n="servicesDev3">Оптимизация уже существующих скриптов и плагинов (в том числе Dynamo).</li>
+              <li data-i18n="servicesDev4">Интеграция плагинов с вашей структурой данных и стандартами компании.</li>
+              <li data-i18n="servicesDev5">Подготовка инструкций для сотрудников.</li>
+            </ul>
           </div>
+          <div class="service-detail">
+            <h4 data-i18n="servicesAuditTitle">2. Аудит работы в Revit</h4>
+            <ul class="service-list">
+              <li data-i18n="servicesAudit1">Анализ текущих файлов, шаблонов, семейств и структуры проектов.</li>
+              <li data-i18n="servicesAudit2">Выявление узких мест, где особенно выгодна автоматизация плагинами.</li>
+              <li data-i18n="servicesAudit3">Рекомендации по доработке шаблонов и перечень потенциальных плагинов «под ваши процессы».</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <h3 data-i18n="servicesAdditionalTitle">Дополнительные услуги по внедрению Revit и BIM</h3>
+          <p class="service-note" data-i18n="servicesAdditionalNote">Если вам нужна не только автоматизация, но и системный подход к Revit в компании:</p>
+          <ul class="service-list">
+            <li data-i18n="servicesAdditional1">Внедрение Revit «под ключ».</li>
+            <li data-i18n="servicesAdditional2">Установка и настройка Revit Server / среды общих данных.</li>
+            <li data-i18n="servicesAdditional3">Написание BIM-стандарта компании (правила моделирования, именования, LOD и т.д.).</li>
+            <li data-i18n="servicesAdditional4">Разработка шаблона КР на основе шаблонов ADSK и Weandrevit с учётом ваших требований.</li>
+            <li data-i18n="servicesAdditional5">Обучение сотрудников работе в новом шаблоне и по новому стандарту.</li>
+            <li data-i18n="servicesAdditional6">Сопровождение пилотного проекта и донастройка стандартов по его результатам.</li>
+          </ul>
+        </article>
+      </section>
+
+    <!-- РЕЗЮМЕ -->
+      <section id="resume">
+        <h2 data-i18n="resumeTitle">Резюме</h2>
+        <div class="resume-block">
+          <a
+            class="download-button"
+            data-download-ru="assets/Resume/%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20-%20%D0%9A%D0%BE%D0%BB%D0%B4%D1%83%D0%BD%D0%BE%D0%B2%20%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB.pdf"
+            data-download-en="assets/Resume/Resume%20-%20Pavel%20Koldunov.pdf"
+            href="assets/Resume/%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20-%20%D0%9A%D0%BE%D0%BB%D0%B4%D1%83%D0%BD%D0%BE%D0%B2%20%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB.pdf"
+            download
+          >
+            <span data-i18n="resumeDownload">Скачать резюме (PDF)</span>
+          </a>
+        </div>
+        <div class="resume-block">
+          <h3 data-i18n="resumeContactsTitle">Контакты</h3>
+          <ul class="resume-list">
+            <li data-i18n="resumePhone"><strong>Мобильный телефон:</strong> +7 980 538-39-15</li>
+            <li data-i18n="resumeEmail"><strong>Email:</strong> <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
+            <li data-i18n="resumeTelegram"><strong>Telegram:</strong> <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+          </ul>
+        </div>
+
+        <div class="resume-block">
+          <h3 data-i18n="educationTitle">Образование</h3>
+          <p data-i18n="educationText">
+            Воронежский государственный архитектурно-строительный университет (2011–2017),
+            факультет строительный — «Строительство уникальных зданий и сооружений», специальность — инженер-строитель.
+          </p>
+        </div>
+
+      <div class="resume-block">
+        <h3 data-i18n="experienceTitle">Опыт работы</h3>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period" data-i18n="job1Period">Август 2022 – Апрель 2025</span>
+            <span class="resume-job__company" data-i18n="job1Company">НПО Олимпроект, ООО «ИнжСтройПроект»</span>
+            <span class="resume-job__role" data-i18n="job1Role">Координатор проектов</span>
+          </div>
+          <p data-i18n="job1Desc">
+            Подготовка файлов хранилища для работы проектировщиков КР, создание семейств, скриптов в Dynamo по заданию,
+            плагинов на C#, редактирование шаблона КР, подчистка семейств и моделей, написание инструкций.
+            Ведение объекта и проверка его модели на коллизии в Navisworks, на соответствие его BEP.
+            Обучение и техническая поддержка новых сотрудников, их аттестация, проведение семинаров в компании и BIM-академии для студентов.
+          </p>
+        </article>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period" data-i18n="job2Period">Январь 2021 — июль 2022</span>
+            <span class="resume-job__company" data-i18n="job2Company">ГК Хамина, ООО Проект-36</span>
+            <span class="resume-job__role" data-i18n="job2Role">Инженер-конструктор / BIM-специалист</span>
+          </div>
+          <p data-i18n="job2Desc">
+            Разработка стадии П и Р раздела КЖ в Revit, выполнение расчетов отдельных элементов монолитного здания в ЛИРА-САПР.
+            Настройка шаблона Revit для раздела КР, создание семейств и скриптов в Dynamo, обучение и консультирование сотрудников отдела КР и АР,
+            разработка инструкций по работе с шаблоном для КЖ.
+          </p>
+        </article>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period" data-i18n="job3Period">Ноябрь 2020 — декабрь 2020</span>
+            <span class="resume-job__company" data-i18n="job3Company">ГК «Агротеххолдинг»</span>
+            <span class="resume-job__role" data-i18n="job3Role">Инженер-конструктор</span>
+          </div>
+          <p data-i18n="job3Desc">Разработка рабочей документации раздела КЖ.</p>
+        </article>
+        <article class="resume-job">
+          <div class="resume-job__title">
+            <span class="resume-job__period" data-i18n="job4Period">Сентябрь 2018 — октябрь 2020</span>
+            <span class="resume-job__company" data-i18n="job4Company">ООО «ТС Профиль-Групп»</span>
+            <span class="resume-job__role" data-i18n="job4Role">Инженер-проектировщик</span>
+          </div>
+          <p data-i18n="job4Desc">
+            Проектирование металлоконструкций на производстве: разработка разделов КЖ, КМ, КМД для зданий и сооружений из ЛСТК и черного металла.
+            Создание расчетных схем в связке Revit + Robot + SCAD, расчет каркаса и узлов в Robot, подбор и расчет фундамента,
+            конструирование каркаса в Advance Steel и фундамента в Revit, составление заданий для линий производства металлопроката,
+            подготовка пояснительной записки, проведение авторского надзора, настройка и обслуживание оборудования для металлопроката.
+          </p>
+        </article>
+      </div>
+
+      <div class="resume-block">
+        <h3 data-i18n="skillsTitle">Навыки</h3>
+        <div class="resume-skill">
+          <strong data-i18n="skillsAdvanced">Продвинутый уровень:</strong>
+          <span>AutoCAD, Autodesk Revit, Revit API, Dynamo, Navisworks</span>
+        </div>
+        <div class="resume-skill">
+          <strong data-i18n="skillsIntermediate">Средний уровень:</strong>
+          <span>Autodesk, Advance Steel, Autodesk Robot Structural Analysis, IronPython, MS Word, MS Excel, MS Project, ЛИРА САПР 2021, vibe coding</span>
+        </div>
+        <div class="resume-skill">
+          <strong data-i18n="skillsBasic">Базовый уровень:</strong>
+          <span>SCAD, Mathcad, Autodesk 3ds Max, PyTorch, C#</span>
         </div>
       </div>
-      <div class="plugin-description" id="plugin-description" aria-live="polite">
-        Нажмите на кнопку, чтобы увидеть описание плагина.
+
+      <div class="resume-block">
+        <h3 data-i18n="aboutSelfTitle">О себе</h3>
+        <p data-i18n="aboutSelfText">
+          Развиваюсь как BIM-специалист, понимаю построение BIM-стандартов и настройку среды общих данных.
+          Работаю с Revit API на Python и C#, знаю Dynamo и пишу скрипты и плагины для автоматизации.
+          Прошел срочную службу, есть водительские права категории B и личный автомобиль.
+        </p>
       </div>
+
     </section>
 
     <!-- КОНТАКТЫ -->
-    <section id="contacts">
-      <h2>Контакты и ссылки</h2>
-      <ul class="contacts-list">
-        <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
-        <li>Telegram: <a href="https://t.me/username" target="_blank" rel="noopener">@username</a></li>
-        <li>GitHub: <a href="https://github.com/username" target="_blank" rel="noopener">github.com/username</a></li>
-        <li>Другая соцсеть / портфолио: <a href="https://example.com" target="_blank" rel="noopener">ссылка</a></li>
-      </ul>
-      <p>Можно добавить фразу вроде: “Лучше всего писать в Telegram” или “Открыт(а) к предложениям о стажировках/проектах”.</p>
-    </section>
+      <section id="contacts">
+        <h2 data-i18n="contactsTitle">Контакты и ссылки</h2>
+        <ul class="contacts-list">
+          <li>Email: <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
+          <li>Telegram: <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+          <li>GitHub: <a href="https://github.com/KoldPavel" target="_blank" rel="noopener">github.com/KoldPavel</a></li>
+          <li data-lang-visibility="ru">HeadHunter: <a href="https://voronezh.hh.ru/resume/bedbe2d9ff058fc3ed0039ed1f493338635143" target="_blank" rel="noopener">HH.ru</a></li>
+        </ul>
+        <p data-i18n="contactsNote">Предпочтительно писать в Telegram.</p>
+      </section>
   </main>
 
   <footer>
@@ -329,6 +668,219 @@
     // Показываем только выбранный раздел по клику в навигации
     const sections = Array.from(document.querySelectorAll("main section"));
     const navLinks = document.querySelectorAll("nav a");
+
+    // Переключение языка
+    const translations = {
+      ru: {
+        headerName: "Павел Колдунов",
+        headerSubtitle: "BIM координатор",
+        navAbout: "Обо мне",
+        navProjects: "Плагины",
+        navServices: "Услуги",
+        navResume: "Резюме",
+        navContacts: "Контакты",
+        aboutTitle: "Обо мне",
+        aboutP1: "Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit.",
+        aboutP2:
+          "Изначально по образованию я инженер-строитель по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе вуза. Как раз к тому времени Autodesk выпустил Revit 2017, который приемлимо стал работать и появился хороший шаблон КР от Александра Зуева - Weandrevit2017, на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit. Работая координатором получил опыт в создании шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов по Revit для студентов.",
+        pluginsTitle: "Плагины для Autodesk Revit",
+        pluginsDescription: "Нажмите на кнопку плагина, чтобы открыть его описание.",
+        pluginsViewsGroup: "Работа с видами",
+        pluginsRebarGroup: "Армирование и анализ",
+        pluginCreateViews: "Создание<br>видов",
+        pluginViewDesign: "Оформление<br>видов",
+        pluginAssignHosts: "Назначить<br>хосты DS",
+        pluginExtraRebar: "Дополнительное<br>армирование",
+        pluginResults: "Просмотр<br>результатов",
+        pluginDirectShape: "DirectShape<br>из точек",
+        servicesTitle: "Услуги",
+        servicesIntro:
+          "Разрабатываю плагины для Revit, которые экономят время на рутинных процессах и снижают количество ошибок в проекте. При необходимости могу выстроить работу с Revit в компании: шаблоны, BIM-стандарты, общая среда данных и сопровождение пилотного проекта.",
+        servicesMainTitle: "Основные услуги",
+        servicesDevTitle: "1. Разработка плагинов для Revit под ваши задачи",
+        servicesDev1: "Написание плагинов с учётом специфики вашей работы (КР/АР/ОВ/ВК и др.).",
+        servicesDev2: "Автоматизация рутинных операций: оформление чертежей, спецификации, выгрузки, проверки модели.",
+        servicesDev3: "Оптимизация уже существующих скриптов и плагинов (в том числе Dynamo).",
+        servicesDev4: "Интеграция плагинов с вашей структурой данных и стандартами компании.",
+        servicesDev5: "Подготовка инструкций для сотрудников.",
+        servicesAuditTitle: "2. Аудит работы в Revit",
+        servicesAudit1: "Анализ текущих файлов, шаблонов, семейств и структуры проектов.",
+        servicesAudit2: "Выявление узких мест, где особенно выгодна автоматизация плагинами.",
+        servicesAudit3: "Рекомендации по доработке шаблонов и перечень потенциальных плагинов «под ваши процессы».",
+        servicesAdditionalTitle: "Дополнительные услуги по внедрению Revit и BIM",
+        servicesAdditionalNote: "Если вам нужна не только автоматизация, но и системный подход к Revit в компании:",
+        servicesAdditional1: "Внедрение Revit «под ключ».",
+        servicesAdditional2: "Установка и настройка Revit Server / среды общих данных.",
+        servicesAdditional3: "Написание BIM-стандарта компании (правила моделирования, именования, LOD и т.д.).",
+        servicesAdditional4: "Разработка шаблона КР на основе шаблонов ADSK и Weandrevit с учётом ваших требований.",
+        servicesAdditional5: "Обучение сотрудников работе в новом шаблоне и по новому стандарту.",
+        servicesAdditional6: "Сопровождение пилотного проекта и донастройка стандартов по его результатам.",
+        resumeTitle: "Резюме",
+        resumeDownload: "Скачать резюме (PDF)",
+        resumeContactsTitle: "Контакты",
+        resumePhone: "<strong>Мобильный телефон:</strong> +7 980 538-39-15",
+        resumeEmail: "<strong>Email:</strong> <a href=\"mailto:koldcoordinator@gmail.com\">koldcoordinator@gmail.com</a>",
+        resumeTelegram: "<strong>Telegram:</strong> <a href=\"https://t.me/PavelKold\" target=\"_blank\" rel=\"noopener\">@PavelKold</a>",
+        educationTitle: "Образование",
+        educationText:
+          "Воронежский государственный архитектурно-строительный университет (2011–2017), факультет строительный — «Строительство уникальных зданий и сооружений», специальность — инженер-строитель.",
+        experienceTitle: "Опыт работы",
+        job1Period: "Август 2022 – Апрель 2025",
+        job1Company: "НПО Олимпроект, ООО «ИнжСтройПроект»",
+        job1Role: "Координатор проектов",
+        job1Desc:
+          "Подготовка файлов хранилища для работы проектировщиков КР, создание семейств, скриптов в Dynamo по заданию, плагинов на C#, редактирование шаблона КР, подчистка семейств и моделей, написание инструкций. Ведение объекта и проверка его модели на коллизии в Navisworks, на соответствие его BEP. Обучение и техническая поддержка новых сотрудников, их аттестация, проведение семинаров в компании и BIM-академии для студентов.",
+        job2Period: "Январь 2021 — июль 2022",
+        job2Company: "ГК Хамина, ООО Проект-36",
+        job2Role: "Инженер-конструктор / BIM-специалист",
+        job2Desc:
+          "Разработка стадии П и Р раздела КЖ в Revit, выполнение расчетов отдельных элементов монолитного здания в ЛИРА-САПР. Настройка шаблона Revit для раздела КР, создание семейств и скриптов в Dynamo, обучение и консультирование сотрудников отдела КР и АР, разработка инструкций по работе с шаблоном для КЖ.",
+        job3Period: "Ноябрь 2020 — декабрь 2020",
+        job3Company: "ГК «Агротеххолдинг»",
+        job3Role: "Инженер-конструктор",
+        job3Desc: "Разработка рабочей документации раздела КЖ.",
+        job4Period: "Сентябрь 2018 — октябрь 2020",
+        job4Company: "ООО «ТС Профиль-Групп»",
+        job4Role: "Инженер-проектировщик",
+        job4Desc:
+          "Проектирование металлоконструкций на производстве: разработка разделов КЖ, КМ, КМД для зданий и сооружений из ЛСТК и черного металла. Создание расчетных схем в связке Revit + Robot + SCAD, расчет каркаса и узлов в Robot, подбор и расчет фундамента, конструирование каркаса в Advance Steel и фундамента в Revit, составление заданий для линий производства металлопроката, подготовка пояснительной записки, проведение авторского надзора, настройка и обслуживание оборудования для металлопроката.",
+        skillsTitle: "Навыки",
+        skillsAdvanced: "Продвинутый уровень:",
+        skillsIntermediate: "Средний уровень:",
+        skillsBasic: "Базовый уровень:",
+        aboutSelfTitle: "О себе",
+        aboutSelfText:
+          "Развиваюсь как BIM-специалист, понимаю построение BIM-стандартов и настройку среды общих данных. Работаю с Revit API на Python и C#, знаю Dynamo и пишу скрипты и плагины для автоматизации. Прошел срочную службу, есть водительские права категории B и личный автомобиль.",
+        contactsTitle: "Контакты и ссылки",
+        contactsNote: "Предпочтительно писать в Telegram."
+      },
+      en: {
+        headerName: "Pavel Koldunov",
+        headerSubtitle: "BIM Coordinator",
+        navAbout: "About",
+        navProjects: "Plugins",
+        navServices: "Services",
+        navResume: "Résumé",
+        navContacts: "Contacts",
+        aboutTitle: "About",
+        aboutP1: "Hi everyone! I'm a BIM coordinator currently working on automating design processes in Revit.",
+        aboutP2:
+          "I graduated as a structural engineer in Unique Buildings and Structures. I started learning Autodesk Revit in 2017 during my final university year, when Revit 2017 and the Weandrevit2017 structural template by Alexander Zuev were released, which helped me complete my thesis. Since then I have grown from designer to BIM coordinator while studying Revit. As a coordinator I gained experience creating structural templates, families, scripts and plugins, running clash checks, aligning EIR requirements with clients, rolling out Revit in companies, training teams, and teaching Revit courses to students.",
+        pluginsTitle: "Autodesk Revit plugins",
+        pluginsDescription: "Click a plugin button to open its description.",
+        pluginsViewsGroup: "View management",
+        pluginsRebarGroup: "Reinforcement and analysis",
+        pluginCreateViews: "Create<br>views",
+        pluginViewDesign: "View<br>styling",
+        pluginAssignHosts: "Assign<br>DS hosts",
+        pluginExtraRebar: "Additional<br>reinforcement",
+        pluginResults: "Results<br>viewer",
+        pluginDirectShape: "DirectShape<br>from points",
+        servicesTitle: "Services",
+        servicesIntro:
+          "I develop Revit plugins that save time on routine tasks and reduce project errors. If needed, I can set up Revit in your company: templates, BIM standards, a common data environment, and support for a pilot project.",
+        servicesMainTitle: "Core services",
+        servicesDevTitle: "1. Plugin development for your Revit tasks",
+        servicesDev1: "Building plugins tailored to your discipline (structural/architectural/MEP, etc.).",
+        servicesDev2: "Automating routine tasks: drawing production, schedules, exports, and model checks.",
+        servicesDev3: "Optimizing existing scripts and plugins (including Dynamo).",
+        servicesDev4: "Integrating plugins with your data structure and company standards.",
+        servicesDev5: "Preparing user guides for the team.",
+        servicesAuditTitle: "2. Revit workflows audit",
+        servicesAudit1: "Analyzing current files, templates, families, and project structure.",
+        servicesAudit2: "Identifying bottlenecks where automation delivers the most value.",
+        servicesAudit3: "Recommendations on template improvements and a list of potential plugins tailored to your processes.",
+        servicesAdditionalTitle: "Additional Revit and BIM rollout services",
+        servicesAdditionalNote: "If you need not only automation but also a systematic approach to Revit:",
+        servicesAdditional1: "Turnkey Revit implementation.",
+        servicesAdditional2: "Installing and configuring Revit Server / common data environment.",
+        servicesAdditional3: "Authoring a company BIM standard (modeling rules, naming, LOD, etc.).",
+        servicesAdditional4: "Developing a structural template based on ADSK/Weandrevit adapted to your requirements.",
+        servicesAdditional5: "Training employees to work in the new template and standard.",
+        servicesAdditional6: "Supporting the pilot project and fine-tuning standards based on its results.",
+        resumeTitle: "Résumé",
+        resumeDownload: "Download résumé (PDF)",
+        resumeContactsTitle: "Contacts",
+        resumePhone: "<strong>Mobile phone:</strong> +7 980 538-39-15",
+        resumeEmail: "<strong>Email:</strong> <a href=\"mailto:koldcoordinator@gmail.com\">koldcoordinator@gmail.com</a>",
+        resumeTelegram: "<strong>Telegram:</strong> <a href=\"https://t.me/PavelKold\" target=\"_blank\" rel=\"noopener\">@PavelKold</a>",
+        educationTitle: "Education",
+        educationText:
+          "Voronezh State University of Architecture and Civil Engineering (2011–2017), School of Civil Engineering — Unique Buildings and Structures, degree in structural engineering.",
+        experienceTitle: "Work experience",
+        job1Period: "August 2022 – April 2025",
+        job1Company: "NPO Olimproekt, LLC InzhStroyProekt",
+        job1Role: "Project coordinator",
+        job1Desc:
+          "Prepared storage files for structural designers, created families, Dynamo scripts, and C# plugins, edited the structural template, cleaned families and models, and wrote guides. Managed the project and checked its model for clashes in Navisworks and compliance with the BEP. Trained and supported new employees, ran assessments, and delivered seminars for the company and a BIM academy for students.",
+        job2Period: "January 2021 — July 2022",
+        job2Company: "Hamina Group, Project-36 LLC",
+        job2Role: "Structural engineer / BIM specialist",
+        job2Desc:
+          "Developed design and detailed stages of reinforced concrete documentation in Revit and ran calculations of individual elements in LIRA-SAPR. Configured the Revit template for structural work, created families and Dynamo scripts, trained and consulted structural and architectural teams, and authored instructions for working with the structural template.",
+        job3Period: "November 2020 — December 2020",
+        job3Company: "Agrotekholding Group",
+        job3Role: "Structural engineer",
+        job3Desc: "Produced working documentation for reinforced concrete structures.",
+        job4Period: "September 2018 — October 2020",
+        job4Company: "TS Profil-Group LLC",
+        job4Role: "Design engineer",
+        job4Desc:
+          "Designed steel structures for buildings and structures made of LGSF and steel. Built analytical models in Revit + Robot + SCAD, calculated frames and joints in Robot, selected and designed foundations, modelled frames in Advance Steel and foundations in Revit, prepared tasks for metal fabrication lines, wrote design notes, performed author supervision, and configured equipment for metal rolling.",
+        skillsTitle: "Skills",
+        skillsAdvanced: "Advanced level:",
+        skillsIntermediate: "Intermediate level:",
+        skillsBasic: "Basic level:",
+        aboutSelfTitle: "About me",
+        aboutSelfText:
+          "I am developing as a BIM specialist, understand how to build BIM standards and configure a common data environment. I work with the Revit API in Python and C#, know Dynamo, and write scripts and plugins for automation.",
+        contactsTitle: "Contacts and links",
+        contactsNote: "Preferably message me on Telegram."
+      }
+    };
+
+    function setLanguage(lang) {
+      const locale = translations[lang] ? lang : "ru";
+      document.documentElement.lang = locale;
+
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-i18n");
+        const translation = translations[locale][key];
+        if (translation) {
+          node.innerHTML = translation;
+        }
+      });
+
+      document.querySelectorAll("[data-lang-visibility]").forEach((node) => {
+        const allowed = node.dataset.langVisibility.split(",").map((item) => item.trim());
+        node.style.display = allowed.includes(locale) ? "" : "none";
+      });
+
+      document.querySelectorAll("[data-download-ru]").forEach((link) => {
+        const downloadKey = locale === "en" ? "downloadEn" : "downloadRu";
+        const targetHref = link.dataset[downloadKey];
+        if (targetHref) {
+          link.setAttribute("href", targetHref);
+        }
+      });
+
+      document.querySelectorAll(".lang-switcher button").forEach((btn) => {
+        btn.classList.toggle("is-active", btn.dataset.lang === locale);
+      });
+
+      localStorage.setItem("preferred-language", locale);
+    }
+
+    const savedLang = localStorage.getItem("preferred-language");
+    if (savedLang) {
+      setLanguage(savedLang);
+    } else {
+      setLanguage("ru");
+    }
+
+    document.querySelectorAll(".lang-switcher button").forEach((btn) => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
 
     function showSection(id) {
       sections.forEach((section) => {
@@ -349,20 +901,6 @@
       showSection(location.hash.replace("#", ""));
     }
 
-    const pluginButtons = document.querySelectorAll(".plugin-button");
-    const pluginDescription = document.getElementById("plugin-description");
-
-    pluginButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const title = button.querySelector(".plugin-title")?.textContent ?? "Плагин";
-        const description = button.dataset.description || "Описание недоступно.";
-
-        pluginButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        pluginDescription.textContent = `${title}: ${description}`;
-      });
-    });
   </script>
 </body>
 </html>
