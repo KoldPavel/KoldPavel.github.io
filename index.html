@@ -29,6 +29,19 @@
       text-align: center;
     }
 
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-text {
+      flex: 1;
+    }
+
     header h1 {
       margin: 0 0 10px;
       font-size: 32px;
@@ -408,11 +421,15 @@
 <body>
   <!-- Шапка -->
   <header>
-    <h1 data-i18n="headerName">Павел Колдунов</h1>
-    <p data-i18n="headerSubtitle">BIM координатор</p>
-    <div class="lang-switcher" role="group" aria-label="Language switcher">
-      <button type="button" class="is-active" data-lang="ru">РУС</button>
-      <button type="button" data-lang="en">ENG</button>
+    <div class="header-content">
+      <div class="header-text">
+        <h1 data-i18n="headerName">Павел Колдунов</h1>
+        <p data-i18n="headerSubtitle">BIM координатор</p>
+      </div>
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button type="button" class="is-active" data-lang="ru">РУС</button>
+        <button type="button" data-lang="en">ENG</button>
+      </div>
     </div>
   </header>
 
