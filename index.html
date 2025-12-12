@@ -553,9 +553,18 @@
         <div class="resume-block">
           <h3 data-i18n="resumeContactsTitle">Контакты</h3>
           <ul class="resume-list">
-            <li data-i18n="resumePhone"><strong>Мобильный телефон:</strong> +7 980 538-39-15</li>
-            <li data-i18n="resumeEmail"><strong>Email:</strong> <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
-            <li data-i18n="resumeTelegram"><strong>Telegram:</strong> <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+            <li>
+              <strong data-i18n="resumePhoneLabel">Мобильный телефон:</strong>
+              <a data-contact="phone" data-format="tel"></a>
+            </li>
+            <li>
+              <strong data-i18n="resumeEmailLabel">Email:</strong>
+              <a data-contact="email" data-format="mail"></a>
+            </li>
+            <li>
+              <strong data-i18n="resumeTelegramLabel">Telegram:</strong>
+              <a data-contact="telegram" target="_blank" rel="noopener"></a>
+            </li>
           </ul>
         </div>
 
@@ -648,10 +657,26 @@
       <section id="contacts">
         <h2 data-i18n="contactsTitle">Контакты и ссылки</h2>
         <ul class="contacts-list">
-          <li>Email: <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
-          <li>Telegram: <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
-          <li>GitHub: <a href="https://github.com/KoldPavel" target="_blank" rel="noopener">github.com/KoldPavel</a></li>
-          <li data-lang-visibility="ru">HeadHunter: <a href="https://voronezh.hh.ru/resume/bedbe2d9ff058fc3ed0039ed1f493338635143" target="_blank" rel="noopener">HH.ru</a></li>
+          <li>
+            <span data-i18n="contactPhoneLabel">Телефон:</span>
+            <a data-contact="phone" data-format="tel"></a>
+          </li>
+          <li>
+            <span data-i18n="contactEmailLabel">Email:</span>
+            <a data-contact="email" data-format="mail"></a>
+          </li>
+          <li>
+            <span data-i18n="contactTelegramLabel">Telegram:</span>
+            <a data-contact="telegram" target="_blank" rel="noopener"></a>
+          </li>
+          <li>
+            <span data-i18n="contactGithubLabel">GitHub:</span>
+            <a data-contact="github" target="_blank" rel="noopener"></a>
+          </li>
+          <li data-lang-visibility="ru">
+            <span data-i18n="contactHHLabel">HeadHunter:</span>
+            <a data-contact="hh" target="_blank" rel="noopener"></a>
+          </li>
         </ul>
         <p data-i18n="contactsNote">Предпочтительно писать в Telegram.</p>
       </section>
@@ -664,6 +689,74 @@
   <script>
     // Автоматически подставляем текущий год
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const encodedContacts = {
+      phone: [43, 55, 32, 57, 56, 48, 32, 53, 51, 56, 45, 51, 57, 45, 49, 53],
+      emailUser: [107, 111, 108, 100, 99, 111, 111, 114, 100, 105, 110, 97, 116, 111, 114],
+      emailDomain: [103, 109, 97, 105, 108, 46, 99, 111, 109],
+      telegram: [80, 97, 118, 101, 108, 75, 111, 108, 100],
+      github: [103, 105, 116, 104, 117, 98, 46, 99, 111, 109, 47, 75, 111, 108, 100, 80, 97, 118, 101, 108],
+      hh: [104, 116, 116, 112, 115, 58, 47, 47, 118, 111, 114, 111, 110, 101, 122, 104, 46, 104, 104, 46, 114, 117, 47, 114, 101, 115, 117, 109, 101, 47, 98, 101, 100, 98, 101, 50, 100, 57, 102, 102, 48, 53, 56, 102, 99, 51, 101, 100, 48, 48, 51, 57, 101, 100, 49, 102, 52, 57, 51, 51, 51, 56, 54, 51, 53, 49, 52, 51],
+    };
+
+    function decodeFromCodes(codes) {
+      return String.fromCharCode(...codes);
+    }
+
+    function buildContactValues() {
+      const phone = decodeFromCodes(encodedContacts.phone);
+      const email = `${decodeFromCodes(encodedContacts.emailUser)}@${decodeFromCodes(encodedContacts.emailDomain)}`;
+      const telegramHandle = decodeFromCodes(encodedContacts.telegram);
+      return {
+        phone,
+        email,
+        telegramHandle,
+        telegramLink: `https://t.me/${telegramHandle}`,
+        githubLink: `https://${decodeFromCodes(encodedContacts.github)}`,
+        hhLink: decodeFromCodes(encodedContacts.hh),
+      };
+    }
+
+    function renderContacts() {
+      const contacts = buildContactValues();
+
+      const renderers = {
+        phone(node) {
+          node.textContent = contacts.phone;
+          if (node.dataset.format === "tel") {
+            node.setAttribute("href", `tel:${contacts.phone.replace(/[^+\d]/g, "")}`);
+          }
+        },
+        email(node) {
+          node.textContent = contacts.email;
+          if (node.dataset.format === "mail") {
+            node.setAttribute("href", `mailto:${contacts.email}`);
+          }
+        },
+        telegram(node) {
+          node.textContent = `@${contacts.telegramHandle}`;
+          node.setAttribute("href", contacts.telegramLink);
+        },
+        github(node) {
+          const href = contacts.githubLink;
+          node.textContent = href.replace(/^https?:\/\//, "");
+          node.setAttribute("href", href);
+        },
+        hh(node) {
+          node.textContent = "HH.ru";
+          node.setAttribute("href", contacts.hhLink);
+        },
+      };
+
+      document.querySelectorAll("[data-contact]").forEach((node) => {
+        const type = node.dataset.contact;
+        if (renderers[type]) {
+          renderers[type](node);
+        }
+      });
+    }
+
+    renderContacts();
 
     // Показываем только выбранный раздел по клику в навигации
     const sections = Array.from(document.querySelectorAll("main section"));
@@ -718,9 +811,9 @@
         resumeTitle: "Резюме",
         resumeDownload: "Скачать резюме (PDF)",
         resumeContactsTitle: "Контакты",
-        resumePhone: "<strong>Мобильный телефон:</strong> +7 980 538-39-15",
-        resumeEmail: "<strong>Email:</strong> <a href=\"mailto:koldcoordinator@gmail.com\">koldcoordinator@gmail.com</a>",
-        resumeTelegram: "<strong>Telegram:</strong> <a href=\"https://t.me/PavelKold\" target=\"_blank\" rel=\"noopener\">@PavelKold</a>",
+        resumePhoneLabel: "Мобильный телефон:",
+        resumeEmailLabel: "Email:",
+        resumeTelegramLabel: "Telegram:",
         educationTitle: "Образование",
         educationText:
           "Воронежский государственный архитектурно-строительный университет (2011–2017), факультет строительный — «Строительство уникальных зданий и сооружений», специальность — инженер-строитель.",
@@ -752,7 +845,12 @@
         aboutSelfText:
           "Развиваюсь как BIM-специалист, понимаю построение BIM-стандартов и настройку среды общих данных. Работаю с Revit API на Python и C#, знаю Dynamo и пишу скрипты и плагины для автоматизации. Прошел срочную службу, есть водительские права категории B и личный автомобиль.",
         contactsTitle: "Контакты и ссылки",
-        contactsNote: "Предпочтительно писать в Telegram."
+        contactsNote: "Предпочтительно писать в Telegram.",
+        contactPhoneLabel: "Телефон:",
+        contactEmailLabel: "Email:",
+        contactTelegramLabel: "Telegram:",
+        contactGithubLabel: "GitHub:",
+        contactHHLabel: "HeadHunter:"
       },
       en: {
         headerName: "Pavel Koldunov",
@@ -801,9 +899,9 @@
         resumeTitle: "Résumé",
         resumeDownload: "Download résumé (PDF)",
         resumeContactsTitle: "Contacts",
-        resumePhone: "<strong>Mobile phone:</strong> +7 980 538-39-15",
-        resumeEmail: "<strong>Email:</strong> <a href=\"mailto:koldcoordinator@gmail.com\">koldcoordinator@gmail.com</a>",
-        resumeTelegram: "<strong>Telegram:</strong> <a href=\"https://t.me/PavelKold\" target=\"_blank\" rel=\"noopener\">@PavelKold</a>",
+        resumePhoneLabel: "Mobile phone:",
+        resumeEmailLabel: "Email:",
+        resumeTelegramLabel: "Telegram:",
         educationTitle: "Education",
         educationText:
           "Voronezh State University of Architecture and Civil Engineering (2011–2017), School of Civil Engineering — Unique Buildings and Structures, degree in structural engineering.",
@@ -835,7 +933,12 @@
         aboutSelfText:
           "I am developing as a BIM specialist, understand how to build BIM standards and configure a common data environment. I work with the Revit API in Python and C#, know Dynamo, and write scripts and plugins for automation.",
         contactsTitle: "Contacts and links",
-        contactsNote: "Preferably message me on Telegram."
+        contactsNote: "Preferably message me on Telegram.",
+        contactPhoneLabel: "Phone:",
+        contactEmailLabel: "Email:",
+        contactTelegramLabel: "Telegram:",
+        contactGithubLabel: "GitHub:",
+        contactHHLabel: "HeadHunter:"
       }
     };
 
