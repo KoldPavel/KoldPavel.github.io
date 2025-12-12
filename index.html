@@ -553,9 +553,18 @@
         <div class="resume-block">
           <h3 data-i18n="resumeContactsTitle">Контакты</h3>
           <ul class="resume-list">
-            <li data-i18n="resumePhone"><strong>Мобильный телефон:</strong> +7 980 538-39-15</li>
-            <li data-i18n="resumeEmail"><strong>Email:</strong> <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
-            <li data-i18n="resumeTelegram"><strong>Telegram:</strong> <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+            <li>
+              <strong data-i18n="resumePhoneLabel">Мобильный телефон:</strong>
+              <span data-contact-text="phone"></span>
+            </li>
+            <li>
+              <strong data-i18n="resumeEmailLabel">Email:</strong>
+              <a data-contact-link="email"></a>
+            </li>
+            <li>
+              <strong data-i18n="resumeTelegramLabel">Telegram:</strong>
+              <a data-contact-link="telegram"></a>
+            </li>
           </ul>
         </div>
 
@@ -648,8 +657,8 @@
       <section id="contacts">
         <h2 data-i18n="contactsTitle">Контакты и ссылки</h2>
         <ul class="contacts-list">
-          <li>Email: <a href="mailto:koldcoordinator@gmail.com">koldcoordinator@gmail.com</a></li>
-          <li>Telegram: <a href="https://t.me/PavelKold" target="_blank" rel="noopener">@PavelKold</a></li>
+          <li><span data-i18n="contactsEmailLabel">Email:</span> <a data-contact-link="email"></a></li>
+          <li><span data-i18n="contactsTelegramLabel">Telegram:</span> <a data-contact-link="telegram"></a></li>
           <li>GitHub: <a href="https://github.com/KoldPavel" target="_blank" rel="noopener">github.com/KoldPavel</a></li>
           <li data-lang-visibility="ru">HeadHunter: <a href="https://voronezh.hh.ru/resume/bedbe2d9ff058fc3ed0039ed1f493338635143" target="_blank" rel="noopener">HH.ru</a></li>
         </ul>
@@ -718,9 +727,9 @@
         resumeTitle: "Резюме",
         resumeDownload: "Скачать резюме (PDF)",
         resumeContactsTitle: "Контакты",
-        resumePhone: "<strong>Мобильный телефон:</strong> +7 980 538-39-15",
-        resumeEmail: "<strong>Email:</strong> <a href=\"mailto:koldcoordinator@gmail.com\">koldcoordinator@gmail.com</a>",
-        resumeTelegram: "<strong>Telegram:</strong> <a href=\"https://t.me/PavelKold\" target=\"_blank\" rel=\"noopener\">@PavelKold</a>",
+        resumePhoneLabel: "Мобильный телефон:",
+        resumeEmailLabel: "Email:",
+        resumeTelegramLabel: "Telegram:",
         educationTitle: "Образование",
         educationText:
           "Воронежский государственный архитектурно-строительный университет (2011–2017), факультет строительный — «Строительство уникальных зданий и сооружений», специальность — инженер-строитель.",
@@ -752,6 +761,8 @@
         aboutSelfText:
           "Развиваюсь как BIM-специалист, понимаю построение BIM-стандартов и настройку среды общих данных. Работаю с Revit API на Python и C#, знаю Dynamo и пишу скрипты и плагины для автоматизации. Прошел срочную службу, есть водительские права категории B и личный автомобиль.",
         contactsTitle: "Контакты и ссылки",
+        contactsEmailLabel: "Email:",
+        contactsTelegramLabel: "Telegram:",
         contactsNote: "Предпочтительно писать в Telegram."
       },
       en: {
@@ -801,9 +812,9 @@
         resumeTitle: "Résumé",
         resumeDownload: "Download résumé (PDF)",
         resumeContactsTitle: "Contacts",
-        resumePhone: "<strong>Mobile phone:</strong> +7 980 538-39-15",
-        resumeEmail: "<strong>Email:</strong> <a href=\"mailto:koldcoordinator@gmail.com\">koldcoordinator@gmail.com</a>",
-        resumeTelegram: "<strong>Telegram:</strong> <a href=\"https://t.me/PavelKold\" target=\"_blank\" rel=\"noopener\">@PavelKold</a>",
+        resumePhoneLabel: "Mobile phone:",
+        resumeEmailLabel: "Email:",
+        resumeTelegramLabel: "Telegram:",
         educationTitle: "Education",
         educationText:
           "Voronezh State University of Architecture and Civil Engineering (2011–2017), School of Civil Engineering — Unique Buildings and Structures, degree in structural engineering.",
@@ -835,9 +846,56 @@
         aboutSelfText:
           "I am developing as a BIM specialist, understand how to build BIM standards and configure a common data environment. I work with the Revit API in Python and C#, know Dynamo, and write scripts and plugins for automation.",
         contactsTitle: "Contacts and links",
+        contactsEmailLabel: "Email:",
+        contactsTelegramLabel: "Telegram:",
         contactsNote: "Preferably message me on Telegram."
       }
     };
+
+    const contactMatrix = {
+      phone: [43, 55, 32, 57, 56, 48, 32, 53, 51, 56, 45, 51, 57, 45, 49, 53],
+      email: [107, 111, 108, 100, 99, 111, 111, 114, 100, 105, 110, 97, 116, 111, 114, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109],
+      telegram: [64, 80, 97, 118, 101, 108, 75, 111, 108, 100],
+    };
+
+    const decodeContact = (type) => {
+      const raw = contactMatrix[type];
+      if (!raw) return "";
+      return String.fromCharCode(...raw);
+    };
+
+    function renderContacts() {
+      const phoneText = decodeContact("phone");
+      if (phoneText) {
+        document.querySelectorAll('[data-contact-text="phone"]').forEach((node) => {
+          node.textContent = phoneText;
+        });
+
+        document.querySelectorAll('[data-contact-link="phone"]').forEach((node) => {
+          node.textContent = phoneText;
+          node.setAttribute("href", `tel:${phoneText.replace(/[^+\\d]/g, "")}`);
+        });
+      }
+
+      const emailText = decodeContact("email");
+      if (emailText) {
+        document.querySelectorAll('[data-contact-link="email"]').forEach((node) => {
+          node.textContent = emailText;
+          node.setAttribute("href", `mailto:${emailText}`);
+        });
+      }
+
+      const telegramText = decodeContact("telegram");
+      if (telegramText) {
+        const telegramHref = `https://t.me/${telegramText.replace(/^@/, "")}`;
+        document.querySelectorAll('[data-contact-link="telegram"]').forEach((node) => {
+          node.textContent = telegramText;
+          node.setAttribute("href", telegramHref);
+          node.setAttribute("target", "_blank");
+          node.setAttribute("rel", "noopener");
+        });
+      }
+    }
 
     function setLanguage(lang) {
       const locale = translations[lang] ? lang : "ru";
@@ -869,6 +927,8 @@
       });
 
       localStorage.setItem("preferred-language", locale);
+
+      renderContacts();
     }
 
     const savedLang = localStorage.getItem("preferred-language");
