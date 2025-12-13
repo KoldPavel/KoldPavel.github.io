@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <title>Павел — личный сайт</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="assets/Icons/SiteIcon_v5_16.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="assets/Icons/SiteIcon_v5_32.png"
+  />
   <style>
     :root {
       --bg: #f5f7fb;
@@ -307,7 +319,7 @@
     .plugin-panel {
       display: flex;
       flex-wrap: wrap;
-      gap: 0;
+      gap: 12px;
       padding: 0;
     }
 
@@ -423,29 +435,16 @@
   <!-- Навигация по странице -->
   <nav>
     <ul>
-      <li><a href="#about" data-i18n="navAbout">Обо мне</a></li>
       <li><a href="#projects" data-i18n="navProjects">Плагины</a></li>
       <li><a href="#services" data-i18n="navServices">Услуги</a></li>
       <li><a href="#resume" data-i18n="navResume">Резюме</a></li>
+      <li><a href="#about" data-i18n="navAbout">Обо мне</a></li>
       <li><a href="#contacts" data-i18n="navContacts">Контакты</a></li>
     </ul>
   </nav>
 
   <main>
-    <!-- ОБО МНЕ -->
-      <section id="about">
-        <h2 data-i18n="aboutTitle">Обо мне</h2>
-        <p data-i18n="aboutP1">
-          Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit.
-        </p>
-        <p data-i18n="aboutP2">
-          Изначально по образованию я инженер-строитель по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе
-          вуза. Как раз к тому времени Autodesk выпустил Revit 2017, который приемлимо стал работать и появился хороший шаблон КР от Александра Зуева - Weandrevit2017,
-          на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit. Работая координатором получил опыт в создании
-          шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов
-          по Revit для студентов.
-        </p>
-      </section>
+    
 
     <!-- ПЛАГИНЫ -->
       <section id="projects">
@@ -634,7 +633,7 @@
         </div>
         <div class="resume-skill">
           <strong data-i18n="skillsIntermediate">Средний уровень:</strong>
-          <span>Autodesk, Advance Steel, Autodesk Robot Structural Analysis, IronPython, MS Word, MS Excel, MS Project, ЛИРА САПР 2021, vibe coding</span>
+          <span>Advance Steel, Autodesk Robot Structural Analysis, IronPython, MS Word, MS Excel, MS Project, ЛИРА САПР 2021, vibe coding</span>
         </div>
         <div class="resume-skill">
           <strong data-i18n="skillsBasic">Базовый уровень:</strong>
@@ -652,7 +651,29 @@
       </div>
 
     </section>
-
+<!-- ОБО МНЕ -->
+      <section id="about">
+        <h2 data-i18n="aboutTitle">Обо мне</h2>
+        <p data-i18n="aboutP1">
+          Здравствуйте! Я BIM-координатор и в настоящее время занимаюсь автоматизацией процессов проектирования в Autodesk Revit.
+        </p>
+        <p data-i18n="aboutP2">
+          По образованию я инженер-строитель по специальности «Строительство уникальных зданий и сооружений».
+          Осваивать Autodesk Revit начал в 2017 году на последнем курсе обучения.
+        В тот период вышла версия Revit 2017, которая стала стабильно работать в учебных и проектных задачах,
+          а также появился качественный шаблон КР от Александра Зуева (Weandrevit2017),
+          на базе которого я выполнил дипломный проект.
+        </p>
+        
+        <p data-i18n="aboutP3">
+          С тех пор я прошёл профессиональный путь от проектировщика до BIM-координатора,
+           последовательно развивая компетенции в Revit и BIM-процессах.
+            В рамках работы BIM-координатором получил практический опыт в разработке и сопровождении шаблонов КР,
+             создании семейств, разработке скриптов и плагинов, выполнении проверок на коллизии,
+              согласовании требований EIR с заказчиком, внедрении Revit в компании, обучении сотрудников,
+               а также в преподавании курсов по Revit для студентов.
+        </p>
+      </section>
     <!-- КОНТАКТЫ -->
       <section id="contacts">
         <h2 data-i18n="contactsTitle">Контакты и ссылки</h2>
@@ -748,9 +769,10 @@
         navResume: "Резюме",
         navContacts: "Контакты",
         aboutTitle: "Обо мне",
-        aboutP1: "Всем привет! Я BIM координатор. В настоящие время работаю над автоматизацией процессов проектирования в Revit.",
+        aboutP1: "Здравствуйте! Я BIM-координатор и в настоящее время занимаюсь автоматизацией процессов проектирования в Autodesk Revit.",
         aboutP2:
-          "Изначально по образованию я инженер-строитель по специальности «Строительство уникальных зданий и сооружений». Autodesk Revit начал изучать в 2017 году на последнем курсе вуза. Как раз к тому времени Autodesk выпустил Revit 2017, который приемлимо стал работать и появился хороший шаблон КР от Александра Зуева - Weandrevit2017, на нём и получилось сделать дипломный проект. С тех пор прошёл путь от проектировщика до bim координатора, параллельно изучая Revit. Работая координатором получил опыт в создании шаблона КР, семейств, скриптов, плагинов, в проверке на коллизии, в согласовании EIR с заказчиком, во внедрении Revit в компанию, в обучении сотрудников, в преподавании курсов по Revit для студентов.",
+          "По образованию я инженер-строитель по специальности «Строительство уникальных зданий и сооружений». Осваивать Autodesk Revit начал в 2017 году на последнем курсе обучения. В тот период вышла версия Revit 2017, которая стала стабильно работать в учебных и проектных задачах, а также появился качественный шаблон КР от Александра Зуева (Weandrevit2017), на базе которого я выполнил дипломный проект.",
+        aboutP3: "С тех пор я прошёл профессиональный путь от проектировщика до BIM-координатора, последовательно развивая компетенции в Revit и BIM-процессах. В рамках работы BIM-координатором получил практический опыт в разработке и сопровождении шаблонов КР, создании семейств, разработке скриптов и плагинов, выполнении проверок на коллизии, согласовании требований EIR с заказчиком, внедрении Revit в компании, обучении сотрудников, а также в преподавании курсов по Revit для студентов.",
         pluginsTitle: "Плагины для Autodesk Revit",
         pluginsDescription: "Нажмите на кнопку плагина, чтобы открыть его описание.",
         pluginsViewsGroup: "Работа с видами",
@@ -831,12 +853,13 @@
         navAbout: "About",
         navProjects: "Plugins",
         navServices: "Services",
-        navResume: "Résumé",
+        navResume: "Resume",
         navContacts: "Contacts",
         aboutTitle: "About",
-        aboutP1: "Hi everyone! I'm a BIM coordinator currently working on automating design processes in Revit.",
+        aboutP1: "Hello! I am a BIM Coordinator, and I am currently focused on automating design workflows in Autodesk Revit.",
         aboutP2:
-          "I graduated as a structural engineer in Unique Buildings and Structures. I started learning Autodesk Revit in 2017 during my final university year, when Revit 2017 and the Weandrevit2017 structural template by Alexander Zuev were released, which helped me complete my thesis. Since then I have grown from designer to BIM coordinator while studying Revit. As a coordinator I gained experience creating structural templates, families, scripts and plugins, running clash checks, aligning EIR requirements with clients, rolling out Revit in companies, training teams, and teaching Revit courses to students.",
+          "I hold a degree in Civil Engineering with a specialization in “Construction of Unique Buildings and Structures.” I began learning Autodesk Revit in 2017 during my final year at university. Around that time, Autodesk released Revit 2017, which became sufficiently stable for practical use, and a high-quality structural template by Alexander Zuev (Weandrevit2017) also became available. I used it as the basis for my graduation project.",
+        aboutP3:"Since then, I have progressed professionally from Design Engineer to BIM Coordinator, continuously developing my Revit and BIM expertise. In my BIM Coordinator role, I have gained hands-on experience in developing and maintaining structural templates, creating Revit families, developing scripts and plugins, performing clash detection, aligning the EIR requirements with the client, implementing Revit company-wide, training employees, and teaching Revit courses for students.",
         pluginsTitle: "Autodesk Revit plugins",
         pluginsDescription: "Click a plugin button to open its description.",
         pluginsViewsGroup: "View management",
@@ -869,8 +892,8 @@
         servicesAdditional4: "Developing a structural template based on ADSK/Weandrevit adapted to your requirements.",
         servicesAdditional5: "Training employees to work in the new template and standard.",
         servicesAdditional6: "Supporting the pilot project and fine-tuning standards based on its results.",
-        resumeTitle: "Résumé",
-        resumeDownload: "Download résumé (PDF)",
+        resumeTitle: "Resume",
+        resumeDownload: "Download resume (PDF)",
         resumeContactsTitle: "Contacts",
         resumePhoneLabel: "Mobile phone:",
         resumeEmailLabel: "Email:",
