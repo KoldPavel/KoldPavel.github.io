@@ -8,48 +8,52 @@
 </head>
 <body>
   <header class="page-header">
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+      <button type="button" class="is-active" data-lang="ru">РУС</button>
+      <button type="button" data-lang="en">ENG</button>
+    </div>
     <div class="header-content">
-      <a class="back-link" href="../index.html#projects">← Ко всем плагинам</a>
-      <h1 class="page-title">Просмотр результатов</h1>
-      <p class="page-subtitle">Визуализация площади армирования по данным ЛИРА САПР</p>
+      <a class="back-link" href="../index.html#projects" data-i18n="backLink">← Ко всем плагинам</a>
+      <h1 class="page-title" data-i18n="title">Просмотр результатов</h1>
+      <p class="page-subtitle" data-i18n="subtitle">Визуализация площади армирования по данным ЛИРА САПР</p>
     </div>
   </header>
 
   <main>
     <section class="section plugin-panel-section" aria-label="Быстрый переход к другим плагинам">
-      <h2>Все плагины</h2>
+      <h2 data-i18n="allPlugins">Все плагины</h2>
       <div class="plugin-panel" role="group" aria-label="Плагины Revit">
         <div class="plugin-group plugin-group--views" aria-label="Работа с видами">
-          <p class="plugin-group-title">Работа с видами</p>
+          <p class="plugin-group-title" data-i18n="viewsGroup">Работа с видами</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="create-sections.html" aria-label="Создание видов">
               <img src="../assets/Icons/CreateSections.png" alt="CreateSections" />
-              <span class="plugin-title">Создание<br />видов</span>
+              <span class="plugin-title" data-i18n="pluginCreateSections">Создание<br />видов</span>
             </a>
             <a class="plugin-button" href="view-design.html" aria-label="Оформление видов">
               <img src="../assets/Icons/ViewDesign.png" alt="View Design" />
-              <span class="plugin-title">Оформление<br />видов</span>
+              <span class="plugin-title" data-i18n="pluginViewDesign">Оформление<br />видов</span>
             </a>
           </div>
         </div>
         <div class="plugin-group plugin-group--rebar" aria-label="Армирование и анализ">
-          <p class="plugin-group-title">Армирование и анализ</p>
+          <p class="plugin-group-title" data-i18n="rebarGroup">Армирование и анализ</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="intersection-hosts.html" aria-label="Назначить хосты DS">
               <img src="../assets/Icons/Intersection.png" alt="Intersection" />
-              <span class="plugin-title">Назначить<br />хосты DS</span>
+              <span class="plugin-title" data-i18n="pluginIntersectionHosts">Назначить<br />хосты DS</span>
             </a>
             <a class="plugin-button" href="path-reinforcement.html" aria-label="Дополнительное армирование">
               <img src="../assets/Icons/PathReinf.png" alt="Path Reinforcement" />
-              <span class="plugin-title">Дополнительное<br />армирование</span>
+              <span class="plugin-title" data-i18n="pluginPathReinforcement">Дополнительное<br />армирование</span>
             </a>
             <a class="plugin-button" href="results-viewer.html" aria-label="Просмотр результатов">
               <img src="../assets/Icons/Results.png" alt="Results" />
-              <span class="plugin-title">Просмотр<br />результатов</span>
+              <span class="plugin-title" data-i18n="pluginResultsViewer">Просмотр<br />результатов</span>
             </a>
             <a class="plugin-button" href="directshape-from-points.html" aria-label="DirectShape из точек">
               <img src="../assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" />
-              <span class="plugin-title">DirectShape<br />из точек</span>
+              <span class="plugin-title" data-i18n="pluginDirectshape">DirectShape<br />из точек</span>
             </a>
           </div>
         </div>
@@ -61,17 +65,17 @@
         <img src="../assets/Icons/Results.png" alt="Иконка плагина Просмотр результатов" width="60" height="60" />
       </div>
       <div>
-        <div class="badge">Аналитика</div>
-        <p>
-          Плагин раскрашивает DirectShape в соответствии со значениями площади армирования, как в ЛИРА САПР.
-          Цветовая шкала настраивается, что позволяет быстро анализировать результаты расчёта прямо в модели.
+        <div class="badge" data-i18n="badge">Аналитика</div>
+        <p data-i18n="heroText">
+          Плагин раскрашивает DirectShape в соответствии со значениями площади армирования, как в ЛИРА САПР. Цветовая шкала
+          настраивается, что позволяет быстро анализировать результаты расчёта прямо в модели.
         </p>
       </div>
     </div>
 
     <section class="section">
-      <h2>Ключевые возможности</h2>
-      <ul>
+      <h2 data-i18n="featuresTitle">Ключевые возможности</h2>
+      <ul data-i18n="featuresList">
         <li>Визуализация данных армирования через цветовую шкалу.</li>
         <li>Быстрый обзор результатов расчёта без переключения между программами.</li>
         <li>Наглядный контроль соответствия DirectShape проектным требованиям.</li>
@@ -79,38 +83,102 @@
     </section>
 
     <section class="section">
-      <h2>Скриншоты</h2>
+      <h2 data-i18n="screenshotsTitle">Скриншоты</h2>
       <div class="screenshot-grid">
         <figure>
           <img src="../assets/Screenshots/LiraResultsViewer/LiraResultsViewer_1.png" alt="Настройка шкалы результатов" />
-          <figcaption>Настройка шкалы цветов под значения площади армирования.</figcaption>
+          <figcaption data-i18n="caption1">Настройка шкалы цветов под значения площади армирования.</figcaption>
         </figure>
         <figure>
           <img src="../assets/Screenshots/LiraResultsViewer/LiraResultsViewer_2.png" alt="Раскраска DirectShape" />
-          <figcaption>Раскрашенные DirectShape позволяют быстро оценить результаты расчёта.</figcaption>
+          <figcaption data-i18n="caption2">Раскрашенные DirectShape позволяют быстро оценить результаты расчёта.</figcaption>
         </figure>
       </div>
     </section>
   </main>
 
-  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр скриншотов">
+  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр скриншотов" data-i18n="lightboxAria">
     <div class="lightbox__dialog">
-      <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">×</button>
+      <button class="lightbox__close" type="button" aria-label="Закрыть просмотр" data-i18n="lightboxClose">×</button>
       <div class="lightbox__image-wrapper">
         <img class="lightbox__image" src="" alt="" />
       </div>
       <p class="lightbox__caption"></p>
       <div class="lightbox__controls">
         <div class="lightbox__buttons">
-          <button class="lightbox__button" type="button" data-direction="prev">← Назад</button>
-          <button class="lightbox__button" type="button" data-direction="next">Вперед →</button>
+          <button class="lightbox__button" type="button" data-direction="prev" data-i18n="lightboxPrev">← Назад</button>
+          <button class="lightbox__button" type="button" data-direction="next" data-i18n="lightboxNext">Вперед →</button>
         </div>
         <span class="lightbox__counter" aria-live="polite"></span>
       </div>
     </div>
   </div>
 
+  <script src="../assets/lang-switcher.js"></script>
   <script>
+    const translations = {
+      ru: {
+        backLink: "← Ко всем плагинам",
+        title: "Просмотр результатов",
+        subtitle: "Визуализация площади армирования по данным ЛИРА САПР",
+        allPlugins: "Все плагины",
+        viewsGroup: "Работа с видами",
+        rebarGroup: "Армирование и анализ",
+        pluginCreateSections: "Создание<br />видов",
+        pluginViewDesign: "Оформление<br />видов",
+        pluginIntersectionHosts: "Назначить<br />хосты DS",
+        pluginPathReinforcement: "Дополнительное<br />армирование",
+        pluginResultsViewer: "Просмотр<br />результатов",
+        pluginDirectshape: "DirectShape<br />из точек",
+        badge: "Аналитика",
+        heroText:
+          "Плагин раскрашивает DirectShape в соответствии со значениями площади армирования, как в ЛИРА САПР. Цветовая шкала настраивается, что позволяет быстро анализировать результаты расчёта прямо в модели.",
+        featuresTitle: "Ключевые возможности",
+        featuresList:
+          "<li>Визуализация данных армирования через цветовую шкалу.</li>" +
+          "<li>Быстрый обзор результатов расчёта без переключения между программами.</li>" +
+          "<li>Наглядный контроль соответствия DirectShape проектным требованиям.</li>",
+        screenshotsTitle: "Скриншоты",
+        caption1: "Настройка шкалы цветов под значения площади армирования.",
+        caption2: "Раскрашенные DirectShape позволяют быстро оценить результаты расчёта.",
+        lightboxAria: "Просмотр скриншотов",
+        lightboxClose: "×",
+        lightboxPrev: "← Назад",
+        lightboxNext: "Вперед →",
+      },
+      en: {
+        backLink: "← Back to all plugins",
+        title: "Results viewer",
+        subtitle: "Visualize reinforcement area from LIRA SAPR data",
+        allPlugins: "All plugins",
+        viewsGroup: "Views",
+        rebarGroup: "Reinforcement and analysis",
+        pluginCreateSections: "Create<br />sections",
+        pluginViewDesign: "View<br />styling",
+        pluginIntersectionHosts: "Assign<br />DS hosts",
+        pluginPathReinforcement: "Additional<br />reinforcement",
+        pluginResultsViewer: "Results<br />viewer",
+        pluginDirectshape: "DirectShape<br />from points",
+        badge: "Analytics",
+        heroText:
+          "The plugin colors DirectShapes according to reinforcement area values from LIRA SAPR. You can tune the color scale, making it easy to review calculation results right in the model.",
+        featuresTitle: "Key capabilities",
+        featuresList:
+          "<li>Visualize reinforcement data through a color scale.</li>" +
+          "<li>Quickly review calculation results without switching tools.</li>" +
+          "<li>Visually check DirectShapes for compliance with project requirements.</li>",
+        screenshotsTitle: "Screenshots",
+        caption1: "Configure the color scale for reinforcement areas.",
+        caption2: "Colored DirectShapes help you quickly assess calculation results.",
+        lightboxAria: "Screenshot viewer",
+        lightboxClose: "×",
+        lightboxPrev: "← Previous",
+        lightboxNext: "Next →",
+      },
+    };
+
+    initLanguageSwitcher(translations);
+
     (() => {
       const figures = Array.from(document.querySelectorAll(".screenshot-grid figure"));
       if (!figures.length) return;
