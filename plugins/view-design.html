@@ -8,48 +8,52 @@
 </head>
 <body>
   <header class="page-header">
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+      <button type="button" class="is-active" data-lang="ru">РУС</button>
+      <button type="button" data-lang="en">ENG</button>
+    </div>
     <div class="header-content">
-      <a class="back-link" href="../index.html#projects">← Ко всем плагинам</a>
-      <h1 class="page-title">Оформление видов</h1>
-      <p class="page-subtitle">Автоматическое оформление выбранных разрезов</p>
+      <a class="back-link" href="../index.html#projects" data-i18n="backLink">← Ко всем плагинам</a>
+      <h1 class="page-title" data-i18n="title">Оформление видов</h1>
+      <p class="page-subtitle" data-i18n="subtitle">Автоматическое оформление выбранных разрезов</p>
     </div>
   </header>
 
   <main>
     <section class="section plugin-panel-section" aria-label="Быстрый переход к другим плагинам">
-      <h2>Все плагины</h2>
+      <h2 data-i18n="allPlugins">Все плагины</h2>
       <div class="plugin-panel" role="group" aria-label="Плагины Revit">
         <div class="plugin-group plugin-group--views" aria-label="Работа с видами">
-          <p class="plugin-group-title">Работа с видами</p>
+          <p class="plugin-group-title" data-i18n="viewsGroup">Работа с видами</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="create-sections.html" aria-label="Создание видов">
               <img src="../assets/Icons/CreateSections.png" alt="CreateSections" />
-              <span class="plugin-title">Создание<br />видов</span>
+              <span class="plugin-title" data-i18n="pluginCreateSections">Создание<br />видов</span>
             </a>
             <a class="plugin-button" href="view-design.html" aria-label="Оформление видов">
               <img src="../assets/Icons/ViewDesign.png" alt="View Design" />
-              <span class="plugin-title">Оформление<br />видов</span>
+              <span class="plugin-title" data-i18n="pluginViewDesign">Оформление<br />видов</span>
             </a>
           </div>
         </div>
         <div class="plugin-group plugin-group--rebar" aria-label="Армирование и анализ">
-          <p class="plugin-group-title">Армирование и анализ</p>
+          <p class="plugin-group-title" data-i18n="rebarGroup">Армирование и анализ</p>
           <div class="plugin-group-buttons">
             <a class="plugin-button" href="intersection-hosts.html" aria-label="Назначить хосты DS">
               <img src="../assets/Icons/Intersection.png" alt="Intersection" />
-              <span class="plugin-title">Назначить<br />хосты DS</span>
+              <span class="plugin-title" data-i18n="pluginIntersectionHosts">Назначить<br />хосты DS</span>
             </a>
             <a class="plugin-button" href="path-reinforcement.html" aria-label="Дополнительное армирование">
               <img src="../assets/Icons/PathReinf.png" alt="Path Reinforcement" />
-              <span class="plugin-title">Дополнительное<br />армирование</span>
+              <span class="plugin-title" data-i18n="pluginPathReinforcement">Дополнительное<br />армирование</span>
             </a>
             <a class="plugin-button" href="results-viewer.html" aria-label="Просмотр результатов">
               <img src="../assets/Icons/Results.png" alt="Results" />
-              <span class="plugin-title">Просмотр<br />результатов</span>
+              <span class="plugin-title" data-i18n="pluginResultsViewer">Просмотр<br />результатов</span>
             </a>
             <a class="plugin-button" href="directshape-from-points.html" aria-label="DirectShape из точек">
               <img src="../assets/Icons/RevitDirectShape.png" alt="Revit DirectShape" />
-              <span class="plugin-title">DirectShape<br />из точек</span>
+              <span class="plugin-title" data-i18n="pluginDirectshape">DirectShape<br />из точек</span>
             </a>
           </div>
         </div>
@@ -61,17 +65,17 @@
         <img src="../assets/Icons/ViewDesign.png" alt="Иконка плагина Оформление видов" width="60" height="60" />
       </div>
       <div>
-        <div class="badge">Стандартизация оформления</div>
-        <p>
-          Плагин обрабатывает выбранные разрезы: автоматически размещает размерные цепочки, марки арматуры, линии обрыва и высотные отметки.
-          Помогает упростить выпуск чертежей и избавляет от повторяющихся действий.
+        <div class="badge" data-i18n="badge">Стандартизация оформления</div>
+        <p data-i18n="heroText">
+          Плагин обрабатывает выбранные разрезы: автоматически размещает размерные цепочки, марки арматуры, линии обрыва и высотные
+          отметки. Помогает упростить выпуск чертежей и избавляет от повторяющихся действий.
         </p>
       </div>
     </div>
 
     <section class="section">
-      <h2>Ключевые возможности</h2>
-      <ul>
+      <h2 data-i18n="featuresTitle">Ключевые возможности</h2>
+      <ul data-i18n="featuresList">
         <li>Оформление видов быстрее в <strong>2-4 раза</strong>, чем вручную + modplus.</li>
         <li>Автоматическая расстановка размеров и марок на выбранных разрезах.</li>
         <li>Добавление линий обрыва и высотных отметок по единым правилам проекта.</li>
@@ -80,42 +84,110 @@
     </section>
 
     <section class="section">
-      <h2>Скриншоты</h2>
+      <h2 data-i18n="screenshotsTitle">Скриншоты</h2>
       <div class="screenshot-grid">
         <figure>
           <img src="../assets/Screenshots/ViewDesign/DesignView_1.png" alt="Исходный вид перед обработкой" />
-          <figcaption>Выбор разрезов и настройка их оформления.</figcaption>
+          <figcaption data-i18n="caption1">Выбор разрезов и настройка их оформления.</figcaption>
         </figure>
         <figure>
           <img src="../assets/Screenshots/ViewDesign/DesignView_2.png" alt="Настройки оформления видов" />
-          <figcaption>Авто расстановка размеров, марок, линий обрыва, высотных отметок.</figcaption>
+          <figcaption data-i18n="caption2">Авто расстановка размеров, марок, линий обрыва, высотных отметок.</figcaption>
         </figure>
         <figure>
           <img src="../assets/Screenshots/ViewDesign/DesignView_3.png" alt="Результат работы плагина" />
-          <figcaption>Вид после нумерации арматуры и ручной доработки расставленных аннотаций.</figcaption>
+          <figcaption data-i18n="caption3">Вид после нумерации арматуры и ручной доработки расставленных аннотаций.</figcaption>
         </figure>
       </div>
     </section>
   </main>
 
-  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр скриншотов">
+  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр скриншотов" data-i18n-aria="lightboxAria">
     <div class="lightbox__dialog">
-      <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">×</button>
+      <button class="lightbox__close" type="button" aria-label="Закрыть просмотр" data-i18n="lightboxClose">×</button>
       <div class="lightbox__image-wrapper">
         <img class="lightbox__image" src="" alt="" />
       </div>
       <p class="lightbox__caption"></p>
       <div class="lightbox__controls">
         <div class="lightbox__buttons">
-          <button class="lightbox__button" type="button" data-direction="prev">← Назад</button>
-          <button class="lightbox__button" type="button" data-direction="next">Вперед →</button>
+          <button class="lightbox__button" type="button" data-direction="prev" data-i18n="lightboxPrev">← Назад</button>
+          <button class="lightbox__button" type="button" data-direction="next" data-i18n="lightboxNext">Вперед →</button>
         </div>
         <span class="lightbox__counter" aria-live="polite"></span>
       </div>
     </div>
   </div>
 
+  <script src="../assets/lang-switcher.js"></script>
   <script>
+    const translations = {
+      ru: {
+        backLink: "← Ко всем плагинам",
+        title: "Оформление видов",
+        subtitle: "Автоматическое оформление выбранных разрезов",
+        allPlugins: "Все плагины",
+        viewsGroup: "Работа с видами",
+        rebarGroup: "Армирование и анализ",
+        pluginCreateSections: "Создание<br />видов",
+        pluginViewDesign: "Оформление<br />видов",
+        pluginIntersectionHosts: "Назначить<br />хосты DS",
+        pluginPathReinforcement: "Дополнительное<br />армирование",
+        pluginResultsViewer: "Просмотр<br />результатов",
+        pluginDirectshape: "DirectShape<br />из точек",
+        badge: "Стандартизация оформления",
+        heroText:
+          "Плагин обрабатывает выбранные разрезы: автоматически размещает размерные цепочки, марки арматуры, линии обрыва и высотные отметки. Помогает упростить выпуск чертежей и избавляет от повторяющихся действий.",
+        featuresTitle: "Ключевые возможности",
+        featuresList:
+          "<li>Оформление видов быстрее в <strong>2-4 раза</strong>, чем вручную + modplus.</li>" +
+          "<li>Автоматическая расстановка размеров и марок на выбранных разрезах.</li>" +
+          "<li>Добавление линий обрыва и высотных отметок по единым правилам проекта.</li>" +
+          "<li>Единый стиль оформления для всех обработанных видов.</li>",
+        screenshotsTitle: "Скриншоты",
+        caption1: "Выбор разрезов и настройка их оформления.",
+        caption2: "Авто расстановка размеров, марок, линий обрыва, высотных отметок.",
+        caption3: "Вид после нумерации арматуры и ручной доработки расставленных аннотаций.",
+        lightboxAria: "Просмотр скриншотов",
+        lightboxClose: "×",
+        lightboxPrev: "← Назад",
+        lightboxNext: "Вперед →",
+      },
+      en: {
+        backLink: "← Back to all plugins",
+        title: "View design",
+        subtitle: "Automatic styling of selected sections",
+        allPlugins: "All plugins",
+        viewsGroup: "Views",
+        rebarGroup: "Reinforcement and analysis",
+        pluginCreateSections: "Create<br />sections",
+        pluginViewDesign: "View<br />styling",
+        pluginIntersectionHosts: "Assign<br />DS hosts",
+        pluginPathReinforcement: "Additional<br />reinforcement",
+        pluginResultsViewer: "Results<br />viewer",
+        pluginDirectshape: "DirectShape<br />from points",
+        badge: "Documentation standards",
+        heroText:
+          "The plugin processes selected sections: it automatically places dimension chains, rebar tags, break lines, and elevation marks. It streamlines drawing production and removes repetitive actions.",
+        featuresTitle: "Key capabilities",
+        featuresList:
+          "<li>Style views <strong>2–4x faster</strong> than manual work + modplus.</li>" +
+          "<li>Automatically place dimensions and tags on selected sections.</li>" +
+          "<li>Add break lines and elevation marks following project-wide rules.</li>" +
+          "<li>Keep a consistent styling for every processed view.</li>",
+        screenshotsTitle: "Screenshots",
+        caption1: "Select sections and set up their styling.",
+        caption2: "Auto placement of dimensions, tags, break lines, and elevations.",
+        caption3: "View after rebar numbering and manual tweak of placed annotations.",
+        lightboxAria: "Screenshot viewer",
+        lightboxClose: "×",
+        lightboxPrev: "← Previous",
+        lightboxNext: "Next →",
+      },
+    };
+
+    initLanguageSwitcher(translations);
+
     (() => {
       const figures = Array.from(document.querySelectorAll(".screenshot-grid figure"));
       if (!figures.length) return;

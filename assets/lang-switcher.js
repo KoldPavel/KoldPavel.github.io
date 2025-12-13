@@ -12,6 +12,14 @@
       }
     });
 
+    document.querySelectorAll("[data-i18n-aria]").forEach((node) => {
+      const key = node.getAttribute("data-i18n-aria");
+      const value = translations[lang]?.[key] ?? fallback[key];
+      if (typeof value === "string") {
+        node.setAttribute("aria-label", value);
+      }
+    });
+
     document.querySelectorAll("[data-lang-visibility]").forEach((node) => {
       const allowed = node.dataset.langVisibility
         .split(",")
