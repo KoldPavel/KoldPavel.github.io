@@ -188,6 +188,19 @@
       text-decoration: underline;
     }
 
+    .about-photo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .about-photo img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    }
+
     .resume-block {
       margin-bottom: 16px;
     }
@@ -654,6 +667,9 @@
 <!-- ОБО МНЕ -->
       <section id="about">
         <h2 data-i18n="aboutTitle">Обо мне</h2>
+        <div class="about-photo">
+          <img src="assets/Photo/Resume.jpg" alt="Фотография Павла" />
+        </div>
         <p data-i18n="aboutP1">
           Здравствуйте! Я BIM-координатор и в настоящее время занимаюсь автоматизацией процессов проектирования в Autodesk Revit.
         </p>
